@@ -1,0 +1,38 @@
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+public class Ventana extends JFrame {
+	
+	private Agenda panelAgenda;
+	private Asignaturas panelAsignaturas;
+	
+	private JPanel menuPrincipal;
+	
+	public Ventana(){
+		super("Agenda Estudiante");
+		
+		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		this.setSize(1000,700);
+		this.setVisible(true);
+		this.setResizable(false);
+		//this.pack();
+		
+		this.menuPrincipal = new JPanel();
+		this.menuPrincipal.setPreferredSize(new Dimension(1000,100));
+		this.menuPrincipal.setBackground(new Color(250,0,0));
+		
+		this.add(this.menuPrincipal, BorderLayout.NORTH);
+		
+		this.menuPrincipal.add(new JLabel("Hey Girl!"));
+		
+	}
+	
+	public static void main(String[] Args){
+		new Ventana();
+	}
+	
+}

@@ -1,0 +1,18 @@
+import java.awt.Color;
+import java.awt.Dimension;
+
+import javax.swing.JLabel;
+
+public class Asignaturas {
+	
+public Asignaturas() extends JPanel{
+		
+		// Inicializa panel
+		super();
+		this.setPreferredSize(new Dimension(1000,600));
+		this.setBackground(new Color(255,255,255));
+		
+		this.add(new JLabel("Agenda"));
+	}
+
+}

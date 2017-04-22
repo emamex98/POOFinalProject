@@ -1,0 +1,61 @@
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+public class Ventana extends JFrame {
+	
+	private Agenda panelAgenda;
+	private Asignaturas panelAsignaturas;
+	
+	private JPanel menuPrincipal;
+	
+	private Agenda agenda;
+	
+	private JButton btAgenda,
+					btTareas,
+					btCalificaciones;
+	
+	public Ventana(){
+		super("Agenda Estudiante");
+		
+		// Inicializa ventana
+		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		this.setVisible(true);
+		this.setResizable(false);	
+		
+		// Inicializa panel de menuPrincipal
+		this.menuPrincipal = new JPanel();
+		this.menuPrincipal.setPreferredSize(new Dimension(1000,70));
+		this.menuPrincipal.setBackground(new Color(216,216,216));
+		
+		// Inicializa y configura componentes del menu principal
+		this.btAgenda = new JButton("Agenda Semanal");
+		this.btAgenda.setPreferredSize(new Dimension(160,50));
+		this.btTareas = new JButton("Tareas");
+		this.btTareas.setPreferredSize(new Dimension(160,50));
+		this.btCalificaciones = new JButton("Calificaciones");
+		this.btCalificaciones.setPreferredSize(new Dimension(160,50));
+		
+		this.menuPrincipal.add(this.btAgenda);
+		this.menuPrincipal.add(this.btTareas);
+		this.menuPrincipal.add(this.btCalificaciones);
+		
+		this.agenda = new Agenda();
+		
+		this.add(this.menuPrincipal, BorderLayout.NORTH);
+		this.add(this.agenda, BorderLayout.SOUTH);
+		
+		this.pack();
+		
+	}
+	
+	public static void main(String[] Args){
+		new Ventana();
+	}
+	
+}

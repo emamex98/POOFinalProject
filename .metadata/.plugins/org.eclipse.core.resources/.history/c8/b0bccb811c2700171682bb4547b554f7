@@ -1,0 +1,14 @@
+import java.awt.Color;
+import java.awt.Dimension;
+
+import javax.swing.JPanel;
+
+public class Agenda extends JPanel{
+	
+	public Agenda(){
+		super();
+		this.setPreferredSize(new Dimension(1000,600));
+		this.setBackground(Color.BLUE);
+	}
+	
+}

@@ -1,0 +1,60 @@
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+import com.jgoodies.forms.layout.ColumnSpec;
+import com.jgoodies.forms.layout.FormLayout;
+import com.jgoodies.forms.layout.FormSpecs;
+import com.jgoodies.forms.layout.RowSpec;
+
+public class PleaseWork extends JPanel{
+	
+	public PleaseWork(){
+		setLayout(new FormLayout(new ColumnSpec[] {
+				FormSpecs.RELATED_GAP_COLSPEC,
+				ColumnSpec.decode("center:max(100dlu;default)"),
+				FormSpecs.RELATED_GAP_COLSPEC,
+				ColumnSpec.decode("center:max(100dlu;pref):grow"),
+				FormSpecs.RELATED_GAP_COLSPEC,
+				ColumnSpec.decode("center:max(100dlu;default)"),
+				FormSpecs.RELATED_GAP_COLSPEC,
+				ColumnSpec.decode("center:max(100dlu;default)"),
+				FormSpecs.RELATED_GAP_COLSPEC,
+				ColumnSpec.decode("center:max(100dlu;default)"),
+				FormSpecs.RELATED_GAP_COLSPEC,
+				ColumnSpec.decode("center:max(101dlu;default):grow"),},
+			new RowSpec[] {
+				FormSpecs.RELATED_GAP_ROWSPEC,
+				RowSpec.decode("max(18dlu;default)"),
+				FormSpecs.RELATED_GAP_ROWSPEC,
+				RowSpec.decode("max(40dlu;default)"),}));
+		
+		JLabel lblLunes = new JLabel("Lunes");
+		add(lblLunes, "2, 2");
+		
+		JLabel lblMartes = new JLabel("Martes");
+		add(lblMartes, "4, 2");
+		
+		JLabel lblMiercoles = new JLabel("Miercoles");
+		add(lblMiercoles, "6, 2");
+		
+		JLabel lblJueves = new JLabel("Jueves");
+		add(lblJueves, "8, 2");
+		
+		JLabel lblViernes = new JLabel("Viernes");
+		add(lblViernes, "10, 2");
+		
+		JLabel lblSabado = new JLabel("Sabado");
+		add(lblSabado, "12, 2");
+		
+		JPanel testPanel = new JPanel();
+		add(testPanel, "2, 4");
+		
+		JPanel panel = new JPanel();
+		add(panel, "4, 4, fill, fill");
+
+	}
+
+}
+
+

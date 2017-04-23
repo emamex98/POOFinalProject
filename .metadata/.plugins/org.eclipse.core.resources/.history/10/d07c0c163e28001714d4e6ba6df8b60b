@@ -1,0 +1,13 @@
+import java.awt.Dimension;
+
+import javax.swing.JPanel;
+
+public class PanelTest extends JPanel{
+	
+	public PanelTest(){
+		super();
+		this.setPreferredSize(new Dimension());
+		
+	}
+
+}

@@ -26,9 +26,10 @@ public class MicroPanelAgenda extends JPanel implements MouseListener{
 	public void mouseClicked(MouseEvent arg0) {
 			  if (arg0.getClickCount() == 2) {
 			    System.out.println("double clicked");
+			    break;
 			  }
 			  else{
-				  //System.out.println("Panel Presionado");
+				  System.out.println("Panel Presionado");
 			}
 		
 		
@@ -48,7 +49,7 @@ public class MicroPanelAgenda extends JPanel implements MouseListener{
 
 	@Override
 	public void mousePressed(MouseEvent arg0) {
-		System.out.println("Click");
+		// TODO Auto-generated method stub
 		
 	}
 

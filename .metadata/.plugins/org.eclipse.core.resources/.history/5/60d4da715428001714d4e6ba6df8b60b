@@ -24,7 +24,7 @@ public class MicroPanelAgenda extends JPanel implements MouseListener{
 
 	@Override
 	public void mouseClicked(MouseEvent arg0) {
-			  if (arg0.getClickCount() == 2) {
+			  if (arg0.getClickCount() == 1) {
 			    System.out.println("double clicked");
 			  }
 			  else{

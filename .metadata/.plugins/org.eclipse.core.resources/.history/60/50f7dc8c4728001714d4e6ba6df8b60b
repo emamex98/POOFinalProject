@@ -57,7 +57,7 @@ public class Ventana extends JFrame implements MouseListener {
 		this.menuPrincipal.add(this.btCalificaciones);
 		
 		// Inicializa las tres secciones del programa
-		this.PAgenda = new PanelAgenda(mpa);
+		this.PAgenda = new PanelAgenda();
 		this.asignaturas = new Asignaturas();
 		this.calificaciones = new CalculadoraMeta();
 		

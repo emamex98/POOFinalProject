@@ -3,7 +3,6 @@ import java.awt.GridBagLayout;
 import javax.swing.JLabel;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
-import java.awt.event.MouseListener;
 import java.awt.Color;
 
 public class PanelAgenda extends JPanel {
@@ -16,7 +15,7 @@ public class PanelAgenda extends JPanel {
 		
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[]{170, 170, 170, 170, 170, 100, 0};
-		gridBagLayout.rowHeights = new int[] {24, 63, 63, 63, 63, 63, 63, 63, 0};
+		gridBagLayout.rowHeights = new int[] {24, 50, 50, 50, 50, 50, 50, 50, 0};
 		gridBagLayout.columnWeights = new double[]{1.0, 1.0, 1.0, 1.0, 1.0, 1.0, Double.MIN_VALUE};
 		gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		setLayout(gridBagLayout);
@@ -209,7 +208,7 @@ public class PanelAgenda extends JPanel {
 		gbc_panelSab3.gridy = 3;
 		add(panelSab3, gbc_panelSab3);
 		
-		JPanel panelLun4 = new MicroPanelAgenda();
+		JPanel panelLun4 = new JPanel();
 		GridBagConstraints gbc_panelLun4 = new GridBagConstraints();
 		gbc_panelLun4.insets = new Insets(0, 0, 5, 5);
 		gbc_panelLun4.fill = GridBagConstraints.BOTH;
@@ -217,7 +216,7 @@ public class PanelAgenda extends JPanel {
 		gbc_panelLun4.gridy = 4;
 		add(panelLun4, gbc_panelLun4);
 		
-		JPanel panelMar4 = new MicroPanelAgenda();
+		JPanel panelMar4 = new JPanel();
 		GridBagConstraints gbc_panelMar4 = new GridBagConstraints();
 		gbc_panelMar4.insets = new Insets(0, 0, 5, 5);
 		gbc_panelMar4.fill = GridBagConstraints.BOTH;
@@ -225,7 +224,7 @@ public class PanelAgenda extends JPanel {
 		gbc_panelMar4.gridy = 4;
 		add(panelMar4, gbc_panelMar4);
 		
-		JPanel panelMie4 = new MicroPanelAgenda();
+		JPanel panelMie4 = new JPanel();
 		GridBagConstraints gbc_panelMie4 = new GridBagConstraints();
 		gbc_panelMie4.insets = new Insets(0, 0, 5, 5);
 		gbc_panelMie4.fill = GridBagConstraints.BOTH;
@@ -233,7 +232,7 @@ public class PanelAgenda extends JPanel {
 		gbc_panelMie4.gridy = 4;
 		add(panelMie4, gbc_panelMie4);
 		
-		JPanel panelJue4 = new MicroPanelAgenda();
+		JPanel panelJue4 = new JPanel();
 		GridBagConstraints gbc_panelJue4 = new GridBagConstraints();
 		gbc_panelJue4.insets = new Insets(0, 0, 5, 5);
 		gbc_panelJue4.fill = GridBagConstraints.BOTH;
@@ -241,7 +240,7 @@ public class PanelAgenda extends JPanel {
 		gbc_panelJue4.gridy = 4;
 		add(panelJue4, gbc_panelJue4);
 		
-		JPanel panelVie4 = new MicroPanelAgenda();
+		JPanel panelVie4 = new JPanel();
 		GridBagConstraints gbc_panelVie4 = new GridBagConstraints();
 		gbc_panelVie4.insets = new Insets(0, 0, 5, 5);
 		gbc_panelVie4.fill = GridBagConstraints.BOTH;
@@ -249,7 +248,7 @@ public class PanelAgenda extends JPanel {
 		gbc_panelVie4.gridy = 4;
 		add(panelVie4, gbc_panelVie4);
 		
-		JPanel panelSab4 = new MicroPanelAgenda();
+		JPanel panelSab4 = new JPanel();
 		GridBagConstraints gbc_panelSab4 = new GridBagConstraints();
 		gbc_panelSab4.insets = new Insets(0, 0, 5, 0);
 		gbc_panelSab4.fill = GridBagConstraints.BOTH;
@@ -257,7 +256,7 @@ public class PanelAgenda extends JPanel {
 		gbc_panelSab4.gridy = 4;
 		add(panelSab4, gbc_panelSab4);
 		
-		JPanel panelLun5 = new MicroPanelAgenda();
+		JPanel panelLun5 = new JPanel();
 		GridBagConstraints gbc_panelLun5 = new GridBagConstraints();
 		gbc_panelLun5.insets = new Insets(0, 0, 5, 5);
 		gbc_panelLun5.fill = GridBagConstraints.BOTH;
@@ -265,7 +264,7 @@ public class PanelAgenda extends JPanel {
 		gbc_panelLun5.gridy = 5;
 		add(panelLun5, gbc_panelLun5);
 		
-		JPanel panelMar5 = new MicroPanelAgenda();
+		JPanel panelMar5 = new JPanel();
 		GridBagConstraints gbc_panelMar5 = new GridBagConstraints();
 		gbc_panelMar5.insets = new Insets(0, 0, 5, 5);
 		gbc_panelMar5.fill = GridBagConstraints.BOTH;
@@ -273,7 +272,7 @@ public class PanelAgenda extends JPanel {
 		gbc_panelMar5.gridy = 5;
 		add(panelMar5, gbc_panelMar5);
 		
-		JPanel panelMie5 = new MicroPanelAgenda();
+		JPanel panelMie5 = new JPanel();
 		GridBagConstraints gbc_panelMie5 = new GridBagConstraints();
 		gbc_panelMie5.insets = new Insets(0, 0, 5, 5);
 		gbc_panelMie5.fill = GridBagConstraints.BOTH;
@@ -281,7 +280,7 @@ public class PanelAgenda extends JPanel {
 		gbc_panelMie5.gridy = 5;
 		add(panelMie5, gbc_panelMie5);
 		
-		JPanel panelJue5 = new MicroPanelAgenda();
+		JPanel panelJue5 = new JPanel();
 		GridBagConstraints gbc_panelJue5 = new GridBagConstraints();
 		gbc_panelJue5.insets = new Insets(0, 0, 5, 5);
 		gbc_panelJue5.fill = GridBagConstraints.BOTH;
@@ -289,7 +288,7 @@ public class PanelAgenda extends JPanel {
 		gbc_panelJue5.gridy = 5;
 		add(panelJue5, gbc_panelJue5);
 		
-		JPanel panelVie5 = new MicroPanelAgenda();
+		JPanel panelVie5 = new JPanel();
 		GridBagConstraints gbc_panelVie5 = new GridBagConstraints();
 		gbc_panelVie5.insets = new Insets(0, 0, 5, 5);
 		gbc_panelVie5.fill = GridBagConstraints.BOTH;
@@ -297,7 +296,7 @@ public class PanelAgenda extends JPanel {
 		gbc_panelVie5.gridy = 5;
 		add(panelVie5, gbc_panelVie5);
 		
-		JPanel panelSab5 = new MicroPanelAgenda();
+		JPanel panelSab5 = new JPanel();
 		GridBagConstraints gbc_panelSab5 = new GridBagConstraints();
 		gbc_panelSab5.insets = new Insets(0, 0, 5, 0);
 		gbc_panelSab5.fill = GridBagConstraints.BOTH;
@@ -305,7 +304,7 @@ public class PanelAgenda extends JPanel {
 		gbc_panelSab5.gridy = 5;
 		add(panelSab5, gbc_panelSab5);
 		
-		JPanel panelLun6 = new MicroPanelAgenda();
+		JPanel panelLun6 = new JPanel();
 		GridBagConstraints gbc_panelLun6 = new GridBagConstraints();
 		gbc_panelLun6.insets = new Insets(0, 0, 5, 5);
 		gbc_panelLun6.fill = GridBagConstraints.BOTH;
@@ -313,7 +312,7 @@ public class PanelAgenda extends JPanel {
 		gbc_panelLun6.gridy = 6;
 		add(panelLun6, gbc_panelLun6);
 		
-		JPanel panelMar6 = new MicroPanelAgenda();
+		JPanel panelMar6 = new JPanel();
 		GridBagConstraints gbc_panelMar6 = new GridBagConstraints();
 		gbc_panelMar6.insets = new Insets(0, 0, 5, 5);
 		gbc_panelMar6.fill = GridBagConstraints.BOTH;
@@ -321,7 +320,7 @@ public class PanelAgenda extends JPanel {
 		gbc_panelMar6.gridy = 6;
 		add(panelMar6, gbc_panelMar6);
 		
-		JPanel panelMie6 = new MicroPanelAgenda();
+		JPanel panelMie6 = new JPanel();
 		GridBagConstraints gbc_panelMie6 = new GridBagConstraints();
 		gbc_panelMie6.insets = new Insets(0, 0, 5, 5);
 		gbc_panelMie6.fill = GridBagConstraints.BOTH;
@@ -329,7 +328,7 @@ public class PanelAgenda extends JPanel {
 		gbc_panelMie6.gridy = 6;
 		add(panelMie6, gbc_panelMie6);
 		
-		JPanel panelJue6 = new MicroPanelAgenda();
+		JPanel panelJue6 = new JPanel();
 		GridBagConstraints gbc_panelJue6 = new GridBagConstraints();
 		gbc_panelJue6.insets = new Insets(0, 0, 5, 5);
 		gbc_panelJue6.fill = GridBagConstraints.BOTH;
@@ -337,7 +336,7 @@ public class PanelAgenda extends JPanel {
 		gbc_panelJue6.gridy = 6;
 		add(panelJue6, gbc_panelJue6);
 		
-		JPanel panelVie6 = new MicroPanelAgenda();
+		JPanel panelVie6 = new JPanel();
 		GridBagConstraints gbc_panelVie6 = new GridBagConstraints();
 		gbc_panelVie6.insets = new Insets(0, 0, 5, 5);
 		gbc_panelVie6.fill = GridBagConstraints.BOTH;
@@ -345,7 +344,7 @@ public class PanelAgenda extends JPanel {
 		gbc_panelVie6.gridy = 6;
 		add(panelVie6, gbc_panelVie6);
 		
-		JPanel panelSab6 = new MicroPanelAgenda();
+		JPanel panelSab6 = new JPanel();
 		GridBagConstraints gbc_panelSab6 = new GridBagConstraints();
 		gbc_panelSab6.insets = new Insets(0, 0, 5, 0);
 		gbc_panelSab6.fill = GridBagConstraints.BOTH;
@@ -353,7 +352,7 @@ public class PanelAgenda extends JPanel {
 		gbc_panelSab6.gridy = 6;
 		add(panelSab6, gbc_panelSab6);
 		
-		JPanel panelLun7 = new MicroPanelAgenda();
+		JPanel panelLun7 = new JPanel();
 		GridBagConstraints gbc_panelLun7 = new GridBagConstraints();
 		gbc_panelLun7.insets = new Insets(0, 0, 0, 5);
 		gbc_panelLun7.fill = GridBagConstraints.BOTH;
@@ -361,7 +360,7 @@ public class PanelAgenda extends JPanel {
 		gbc_panelLun7.gridy = 7;
 		add(panelLun7, gbc_panelLun7);
 		
-		JPanel panelMar7 = new MicroPanelAgenda();
+		JPanel panelMar7 = new JPanel();
 		GridBagConstraints gbc_panelMar7 = new GridBagConstraints();
 		gbc_panelMar7.insets = new Insets(0, 0, 0, 5);
 		gbc_panelMar7.fill = GridBagConstraints.BOTH;
@@ -369,7 +368,7 @@ public class PanelAgenda extends JPanel {
 		gbc_panelMar7.gridy = 7;
 		add(panelMar7, gbc_panelMar7);
 		
-		JPanel panelMie7 = new MicroPanelAgenda();
+		JPanel panelMie7 = new JPanel();
 		GridBagConstraints gbc_panelMie7 = new GridBagConstraints();
 		gbc_panelMie7.insets = new Insets(0, 0, 0, 5);
 		gbc_panelMie7.fill = GridBagConstraints.BOTH;
@@ -377,7 +376,7 @@ public class PanelAgenda extends JPanel {
 		gbc_panelMie7.gridy = 7;
 		add(panelMie7, gbc_panelMie7);
 		
-		JPanel panelJue7 = new MicroPanelAgenda();
+		JPanel panelJue7 = new JPanel();
 		GridBagConstraints gbc_panelJue7 = new GridBagConstraints();
 		gbc_panelJue7.insets = new Insets(0, 0, 0, 5);
 		gbc_panelJue7.fill = GridBagConstraints.BOTH;
@@ -385,7 +384,7 @@ public class PanelAgenda extends JPanel {
 		gbc_panelJue7.gridy = 7;
 		add(panelJue7, gbc_panelJue7);
 		
-		JPanel panelVie7 = new MicroPanelAgenda();
+		JPanel panelVie7 = new JPanel();
 		GridBagConstraints gbc_panelVie7 = new GridBagConstraints();
 		gbc_panelVie7.insets = new Insets(0, 0, 0, 5);
 		gbc_panelVie7.fill = GridBagConstraints.BOTH;
@@ -393,7 +392,7 @@ public class PanelAgenda extends JPanel {
 		gbc_panelVie7.gridy = 7;
 		add(panelVie7, gbc_panelVie7);
 		
-		JPanel panelSab7 = new MicroPanelAgenda();
+		JPanel panelSab7 = new JPanel();
 		GridBagConstraints gbc_panelSab7 = new GridBagConstraints();
 		gbc_panelSab7.fill = GridBagConstraints.BOTH;
 		gbc_panelSab7.gridx = 5;

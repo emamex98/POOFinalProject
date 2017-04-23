@@ -1,0 +1,85 @@
+import javax.swing.JPanel;
+import java.awt.GridBagLayout;
+import javax.swing.JLabel;
+import java.awt.GridBagConstraints;
+import java.awt.Insets;
+import java.awt.Color;
+
+public class PanelAgenda extends JPanel {
+	private MicroPanelAgenda MPA;
+
+	/**
+	 * Create the panel.
+	 */
+	public PanelAgenda(MicroPanelAgenda MPA) {
+		
+		GridBagLayout gridBagLayout = new GridBagLayout();
+		gridBagLayout.columnWidths = new int[]{170, 170, 170, 170, 170, 100, 0};
+		gridBagLayout.rowHeights = new int[] {24, 50, 0};
+		gridBagLayout.columnWeights = new double[]{0.0, 1.0, 0.0, 0.0, 0.0, 1.0, Double.MIN_VALUE};
+		gridBagLayout.rowWeights = new double[]{0.0, 0.0, Double.MIN_VALUE};
+		setLayout(gridBagLayout);
+		
+		JLabel lblLunes = new JLabel("Lunes");
+		lblLunes.setBackground(Color.GREEN);
+		GridBagConstraints gbc_lblLunes = new GridBagConstraints();
+		gbc_lblLunes.insets = new Insets(0, 0, 5, 5);
+		gbc_lblLunes.gridx = 0;
+		gbc_lblLunes.gridy = 0;
+		add(lblLunes, gbc_lblLunes);
+		
+		JLabel lblMartes = new JLabel("Martes");
+		GridBagConstraints gbc_lblMartes = new GridBagConstraints();
+		gbc_lblMartes.insets = new Insets(0, 0, 5, 5);
+		gbc_lblMartes.gridx = 1;
+		gbc_lblMartes.gridy = 0;
+		add(lblMartes, gbc_lblMartes);
+		
+		JLabel lblMiercoles = new JLabel("Miercoles");
+		GridBagConstraints gbc_lblMiercoles = new GridBagConstraints();
+		gbc_lblMiercoles.insets = new Insets(0, 0, 5, 5);
+		gbc_lblMiercoles.gridx = 2;
+		gbc_lblMiercoles.gridy = 0;
+		add(lblMiercoles, gbc_lblMiercoles);
+		
+		JLabel lblJueves = new JLabel("Jueves");
+		GridBagConstraints gbc_lblJueves = new GridBagConstraints();
+		gbc_lblJueves.insets = new Insets(0, 0, 5, 5);
+		gbc_lblJueves.gridx = 3;
+		gbc_lblJueves.gridy = 0;
+		add(lblJueves, gbc_lblJueves);
+		
+		JLabel lblViernes = new JLabel("Viernes");
+		GridBagConstraints gbc_lblViernes = new GridBagConstraints();
+		gbc_lblViernes.insets = new Insets(0, 0, 5, 5);
+		gbc_lblViernes.gridx = 4;
+		gbc_lblViernes.gridy = 0;
+		add(lblViernes, gbc_lblViernes);
+		
+		JLabel lblSabado = new JLabel("Sabado");
+		GridBagConstraints gbc_lblSabado = new GridBagConstraints();
+		gbc_lblSabado.insets = new Insets(0, 0, 5, 0);
+		gbc_lblSabado.gridx = 5;
+		gbc_lblSabado.gridy = 0;
+		add(lblSabado, gbc_lblSabado);
+		
+		JLabel lblHola = new JLabel("Hola");
+		GridBagConstraints gbc_lblHola = new GridBagConstraints();
+		gbc_lblHola.insets = new Insets(0, 0, 0, 5);
+		gbc_lblHola.gridx = 0;
+		gbc_lblHola.gridy = 1;
+		add(lblHola, gbc_lblHola);
+		
+		JPanel panel = this.MPA;
+		GridBagConstraints gbc_panel = new GridBagConstraints();
+		gbc_panel.insets = new Insets(0, 0, 0, 5);
+		gbc_panel.fill = GridBagConstraints.BOTH;
+		gbc_panel.gridx = 1;
+		gbc_panel.gridy = 1;
+		add(panel, gbc_panel);
+		
+		
+
+	}
+
+}

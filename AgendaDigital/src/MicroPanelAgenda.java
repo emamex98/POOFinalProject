@@ -7,8 +7,10 @@ import javax.swing.JPanel;
 //Clase de los paneles del horario, estos contienen cada materia
 public class MicroPanelAgenda extends JPanel implements MouseListener{
 	private JLabel lblMateria;
+	private VentanaAltaMateria vam;
 	MicroPanelAgenda(){
 		super();
+		this.vam=new VentanaAltaMateria(this);
 		this.setPreferredSize(new Dimension(170,63));
 		this.lblMateria = new JLabel("");
 		this.setBackground(Color.WHITE);
@@ -16,19 +18,22 @@ public class MicroPanelAgenda extends JPanel implements MouseListener{
 		super.addMouseListener(this);
 	}
 	
-	public void setMateria(String materia){
+	public void setMateria(String materia,Color color){
 		lblMateria.setText(materia);
-        this.setBackground(Color.BLACK);
+        this.setBackground(color);
+        
 		
 	}
 
 	@Override
-	public void mouseClicked(MouseEvent arg0) {
-			  if (arg0.getClickCount() == 2) {
+	public void mouseClicked(MouseEvent e) {
+			if (e.getClickCount() == 2 && !e.isConsumed()) {
+			     e.consume();
+			     this.vam.setVisible(true);
 			    System.out.println("double clicked");
 			  }
-			  else{
-				  //System.out.println("Panel Presionado");
+			  else if (e.getClickCount() == 1 && !e.isConsumed()){
+				  System.out.println("Panel Presionado");
 			}
 		
 		

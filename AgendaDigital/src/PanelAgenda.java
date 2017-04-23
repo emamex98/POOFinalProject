@@ -73,6 +73,7 @@ public class PanelAgenda extends JPanel {
 		add(panelLun1, gbc_panelLun1);
 		
 		
+		
 		JPanel panelMar1 = new MicroPanelAgenda();
 		GridBagConstraints gbc_panelMar1 = new GridBagConstraints();
 		gbc_panelMar1.insets = new Insets(0, 0, 5, 5);

@@ -1,0 +1,14 @@
+
+public class Materia {
+	
+	private String nombreMateria;
+	
+	public Materia(String nombreMateria){
+		this.nombreMateria = nombreMateria;
+	}
+	
+	public String getNombreMateria(){
+		return this.nombreMateria;
+	}
+
+}

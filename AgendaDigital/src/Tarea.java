@@ -2,20 +2,13 @@
 public class Tarea {
 	
 	private String nombreTarea,
-				   fechaLimite;
-	
-	private Materia nombreMateria;
+				   fechaLimite,
+				   nombreMateria;
 	
 	private boolean terminada;
 	
 	public Tarea(){
 		this.setAllNull();
-	}
-
-	public Tarea(String nombreTarea, String fechaLimite){ // Materia nombreMateria{
-		this.nombreTarea = nombreTarea;
-		this.fechaLimite = fechaLimite;
-		//this.nombreMateria = nombreMateria;
 	}
 	
 	// Setters
@@ -31,9 +24,14 @@ public class Tarea {
 		this.terminada = terminada;
 	}
 	
+	public void setNombreMateria(String nombreMateria){
+		this.nombreMateria = nombreMateria;
+	}
+	
 	public void setAllNull(){
 		this.nombreTarea = null;
 		this.fechaLimite = null;
+		this.nombreMateria = null;
 		this.terminada = false;
 	}
 
@@ -48,6 +46,10 @@ public class Tarea {
 	
 	public boolean getCompletar(){
 		return this.terminada;
+	}
+	
+	public String getNombreMateria(){
+		return this.nombreMateria;
 	}
 	
 }

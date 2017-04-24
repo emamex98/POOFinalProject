@@ -17,16 +17,19 @@ public class Asignaturas extends JPanel implements ActionListener{
 	
 	private JCheckBox[] cbTareas;
 	
+	private JLabel[] nombresTareas;
+	
 	private Tarea[] listaTareas;
 	
 	private JTextField tfNombreTarea,
 					   tfFechaLimite,
 					   tfMateria;
 	
-	private JButton btAgregar;
+	private JButton btAgregar,
+					btActualizar;
 	
-	private int tmpTareras,
-				tareasActivas;
+	private int asignaturasActivas;
+	
 	
 	public Asignaturas(){
 		
@@ -46,40 +49,61 @@ public class Asignaturas extends JPanel implements ActionListener{
 		 * Cada indice del arreglo checkbox corresponde al mismo indice del arreglo tarea */
 		this.cbTareas = new JCheckBox[20];
 		this.listaTareas = new Tarea[20];
+		this.nombresTareas = new JLabel[20];
 		
 		for(int i=0; i<this.listaTareas.length; i++){
 			this.cbTareas[i] = new JCheckBox();
 			this.listaTareas[i] = new Tarea();
+			this.nombresTareas[i] = new JLabel("");
 		}
 		
-		this.tmpTareras = 0;
-		this.tareasActivas = 0;
+		this.asignaturasActivas = 0;
 		
 		// Inicializa los componentes de panelAgregar
 		this.tfNombreTarea = new JTextField("Nombre",20);
 		this.tfFechaLimite = new JTextField("Fecha",20);
 		this.tfMateria = new JTextField("Materia",20);
 		
+		// Boton agregar
 		this.btAgregar = new JButton("Agregar");
 		this.btAgregar.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				for(int i=0; i<Asignaturas.this.listaTareas.length; i++){
 					if(Asignaturas.this.listaTareas[i].getNombreTarea() == null){
 						Asignaturas.this.listaTareas[i].setNombreTarea(Asignaturas.this.tfNombreTarea.getText());
-						Asignaturas.this.tmpTareras = i;
-						Asignaturas.this.tareasActivas++;
+						Asignaturas.this.nombresTareas[i].setText(Asignaturas.this.listaTareas[i].getNombreTarea());
+						Asignaturas.this.listaTareas[i].setCompletar(false);
+						Asignaturas.this.asignaturasActivas++;
 						break;
 					}
 				}
 				
 				Asignaturas.this.imprimeTareas();
-				
-				if(Asignaturas.this.tareasActivas > 19){
-					Asignaturas.this.tfNombreTarea.setEnabled(false);
-					Asignaturas.this.tfFechaLimite.setEnabled(false);;
-					Asignaturas.this.tfMateria.setEnabled(false);
-					Asignaturas.this.btAgregar.setEnabled(false);
+				checkLimite();
+			}
+		});
+		
+		// Buton descartar
+		this.btActualizar = new JButton("Descartar Tareas Terminadas");
+		this.btActualizar.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				for(int i=0; i<Asignaturas.this.listaTareas.length; i++){
+					if(Asignaturas.this.cbTareas[i].isSelected() == true){
+						Asignaturas.this.listaTareas[i].setAllNull();
+						Asignaturas.this.nombresTareas[i].setText("");
+						Asignaturas.this.asignaturasActivas--;
+					}
+					
+					if(i<19 && Asignaturas.this.listaTareas[i].getNombreTarea() == null && Asignaturas.this.listaTareas[i+1].getNombreTarea() != null){
+						Asignaturas.this.listaTareas[i].setNombreTarea(Asignaturas.this.listaTareas[i+1].getNombreTarea());
+						Asignaturas.this.nombresTareas[i].setText(Asignaturas.this.listaTareas[i].getNombreTarea());
+						Asignaturas.this.listaTareas[i+1].setAllNull();
+						Asignaturas.this.nombresTareas[i+1].setText("");
+					}
 				}
+				
+				Asignaturas.this.imprimeTareas();
+				checkLimite();
 			}
 		});
 		
@@ -88,10 +112,17 @@ public class Asignaturas extends JPanel implements ActionListener{
 		this.panelAgregar.add(this.tfFechaLimite);
 		this.panelAgregar.add(this.tfMateria);
 		this.panelAgregar.add(this.btAgregar);
+		this.panelAgregar.add(this.btActualizar);
 				
 		// Agrega componentes a panelLista
 		this.panelLista.add(new JLabel("Tareas Pendientes:"));
-		//this.imprimeTareas();
+		
+		for(int i=0; i<this.listaTareas.length; i++){
+			this.panelLista.add(this.cbTareas[i]);
+			this.cbTareas[i].setVisible(false);
+			this.panelLista.add(this.nombresTareas[i]);
+			this.nombresTareas[i].setVisible(false);
+		}
 		
 		// Agregar componentes a paneles
 		this.add(this.panelAgregar, BorderLayout.WEST);
@@ -100,13 +131,33 @@ public class Asignaturas extends JPanel implements ActionListener{
 	}
 	
 	public void imprimeTareas(){
-		//for(int i=0; i<this.listaTareas.length; i++){
-			if(this.listaTareas[this.tmpTareras].getNombreTarea() != null){
-				this.panelLista.add(this.cbTareas[this.tmpTareras]);
-				this.panelLista.add(new JLabel(this.listaTareas[this.tmpTareras].getNombreTarea()));
+		for(int i=0; i<this.listaTareas.length; i++){
+			if(this.listaTareas[i].getNombreTarea() != null){
+				this.cbTareas[i].setSelected(this.listaTareas[i].getCompletar());
+				this.cbTareas[i].setVisible(true);
+				this.nombresTareas[i].setVisible(true);
 			}
-		//}
+			else{
+				this.cbTareas[i].setVisible(false);
+				this.nombresTareas[i].setVisible(false);
+			}
+		}
 		this.validate();
+	}
+	
+	public void checkLimite(){
+		if(this.asignaturasActivas > 19) {
+			this.tfNombreTarea.setEnabled(false);
+			this.tfFechaLimite.setEnabled(false);;
+			this.tfMateria.setEnabled(false);
+			this.btAgregar.setEnabled(false);
+		}
+		else {
+			this.tfNombreTarea.setEnabled(true);
+			this.tfFechaLimite.setEnabled(true);;
+			this.tfMateria.setEnabled(true);
+			this.btAgregar.setEnabled(true);
+		}
 	}
 
 	@Override

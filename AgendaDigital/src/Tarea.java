@@ -6,6 +6,8 @@ public class Tarea {
 	
 	private Materia nombreMateria;
 	
+	private boolean terminada;
+	
 	public Tarea(){
 		this.setAllNull();
 	}
@@ -25,9 +27,14 @@ public class Tarea {
 		this.fechaLimite = fechaLimite;	
 	}
 	
+	public void setCompletar(boolean terminada){
+		this.terminada = terminada;
+	}
+	
 	public void setAllNull(){
 		this.nombreTarea = null;
 		this.fechaLimite = null;
+		this.terminada = false;
 	}
 
 	// Getters
@@ -37,6 +44,10 @@ public class Tarea {
 	
 	public String getFechaLimite(){
 		return this.fechaLimite;	
+	}
+	
+	public boolean getCompletar(){
+		return this.terminada;
 	}
 	
 }

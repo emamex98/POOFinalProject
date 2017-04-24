@@ -2761,3 +2761,13 @@ java.io.IOException: Unable to resolve plug-in "platform:/plugin/org.eclipse.wb.
 
 !ENTRY org.eclipse.e4.ui.workbench 2 0 2017-04-23 16:36:58.757
 !MESSAGE Removing part descriptor with the 'org.eclipse.wb.core.PaletteView' id and the 'Palette' description. Points to the invalid 'bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView' class.
+!SESSION 2017-04-23 19:56:52.405 -----------------------------------------------
+eclipse.buildId=4.6.3.M20170301-0400
+java.version=1.8.0_25
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_CA
+Framework arguments:  -product org.eclipse.epp.package.java.product -keyring /Users/emamex98/.eclipse_keyring
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.epp.package.java.product -keyring /Users/emamex98/.eclipse_keyring
+
+!ENTRY org.eclipse.core.net 1 0 2017-04-23 19:58:08.192
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences

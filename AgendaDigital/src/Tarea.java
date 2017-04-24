@@ -1,4 +1,42 @@
 
 public class Tarea {
+	
+	private String nombreTarea,
+				   fechaLimite;
+	
+	private Materia nombreMateria;
+	
+	public Tarea(){
+		this.setAllNull();
+	}
 
+	public Tarea(String nombreTarea, String fechaLimite){ // Materia nombreMateria{
+		this.nombreTarea = nombreTarea;
+		this.fechaLimite = fechaLimite;
+		//this.nombreMateria = nombreMateria;
+	}
+	
+	// Setters
+	public void setNombreTarea(String nombreTarea){
+		this.nombreTarea = nombreTarea;
+	}
+	
+	public void setFechaLimite(String fechaLimite){
+		this.fechaLimite = fechaLimite;	
+	}
+	
+	public void setAllNull(){
+		this.nombreTarea = null;
+		this.fechaLimite = null;
+	}
+
+	// Getters
+	public String getNombreTarea(){
+		return this.nombreTarea;
+	}
+	
+	public String getFechaLimite(){
+		return this.fechaLimite;	
+	}
+	
 }

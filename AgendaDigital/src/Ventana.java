@@ -64,8 +64,8 @@ public class Ventana extends JFrame implements MouseListener {
 		// Agrega componentes a la ventana
 		this.add(this.menuPrincipal, BorderLayout.NORTH);
 		this.add(this.PAgenda, BorderLayout.CENTER);
-		this.add(this.asignaturas, BorderLayout.SOUTH);
-		this.add(this.calificaciones, BorderLayout.WEST);
+		this.add(this.asignaturas, BorderLayout.WEST);
+		this.add(this.calificaciones, BorderLayout.SOUTH); // Corregir esto
 		
 		// Esconde las secciones de asignaturas y calificaciones, que se activan con los mouse events
 		this.asignaturas.setVisible(false);

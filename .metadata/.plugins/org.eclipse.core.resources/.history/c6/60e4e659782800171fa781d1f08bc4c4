@@ -1,0 +1,38 @@
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+public class Asignaturas extends JPanel{
+	
+	private JPanel panelAgregar,
+				   panelLista;
+	
+	private JLabel mensaje;
+	
+	public Asignaturas(){
+		
+		// Inicializa panel
+		super(new BorderLayout());
+		this.setPreferredSize(new Dimension(1050,600));
+		this.setBackground(new Color(255,255,255));
+		
+		this.panelAgregar = new JPanel(new BorderLayout());
+		this.panelAgregar.setPreferredSize(new Dimension(400,600));
+		this.panelAgregar.setBackground(new Color(216,216,216));
+		
+		this.panelLista = new JPanel();
+		this.panelLista.setPreferredSize(new Dimension(650,600));
+		
+		// Agrega componentes a panelLista
+		this.panelLista.add(new JLabel("Tareas Pendientes:"));
+		
+		// Agregar componentes a paneles
+		this.add(this.panelAgregar, BorderLayout.WEST);
+		this.add(this.panelLista, BorderLayout.EAST);
+		
+	}
+
+}

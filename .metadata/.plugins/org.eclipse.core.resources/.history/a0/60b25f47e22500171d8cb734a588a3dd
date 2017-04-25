@@ -1,0 +1,13 @@
+import java.awt.Dimension;
+import javax.swing.JFrame;
+
+public class Ventana {
+
+	private JFrame ventanaPrincipal;
+	
+	public Ventana(){
+		ventanaPrincipal = new JFrame("Agenda miTec");
+		ventanaPrincipal.setPreferredSize(new Dimension(800,600));
+		ventanaPrincipal.setVisible(true);
+	}
+}

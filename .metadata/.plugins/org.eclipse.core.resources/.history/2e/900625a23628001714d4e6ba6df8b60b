@@ -1,0 +1,63 @@
+import javax.swing.JPanel;
+import java.awt.GridBagLayout;
+import javax.swing.JLabel;
+import java.awt.GridBagConstraints;
+import java.awt.Insets;
+
+public class AgendaLay extends JPanel {
+
+	/**
+	 * Create the panel.
+	 */
+	public AgendaLay() {
+		GridBagLayout gridBagLayout = new GridBagLayout();
+		gridBagLayout.columnWidths = new int[]{0, 0, 0, 40, 0, 0, 0, 0, 45, 0, 46, 0};
+		gridBagLayout.rowHeights = new int[]{0, 0};
+		gridBagLayout.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		gridBagLayout.rowWeights = new double[]{0.0, Double.MIN_VALUE};
+		setLayout(gridBagLayout);
+		
+		JLabel lblLunes = new JLabel("Lunes");
+		GridBagConstraints gbc_lblLunes = new GridBagConstraints();
+		gbc_lblLunes.insets = new Insets(0, 0, 0, 5);
+		gbc_lblLunes.gridx = 0;
+		gbc_lblLunes.gridy = 0;
+		add(lblLunes, gbc_lblLunes);
+		
+		JLabel lblMartes = new JLabel("Martes");
+		GridBagConstraints gbc_lblMartes = new GridBagConstraints();
+		gbc_lblMartes.insets = new Insets(0, 0, 0, 5);
+		gbc_lblMartes.gridx = 2;
+		gbc_lblMartes.gridy = 0;
+		add(lblMartes, gbc_lblMartes);
+		
+		JLabel lblMiercoles = new JLabel("Miercoles");
+		GridBagConstraints gbc_lblMiercoles = new GridBagConstraints();
+		gbc_lblMiercoles.insets = new Insets(0, 0, 0, 5);
+		gbc_lblMiercoles.gridx = 4;
+		gbc_lblMiercoles.gridy = 0;
+		add(lblMiercoles, gbc_lblMiercoles);
+		
+		JLabel lblJueves = new JLabel("Jueves");
+		GridBagConstraints gbc_lblJueves = new GridBagConstraints();
+		gbc_lblJueves.insets = new Insets(0, 0, 0, 5);
+		gbc_lblJueves.gridx = 6;
+		gbc_lblJueves.gridy = 0;
+		add(lblJueves, gbc_lblJueves);
+		
+		JLabel lblViernes = new JLabel("Viernes");
+		GridBagConstraints gbc_lblViernes = new GridBagConstraints();
+		gbc_lblViernes.insets = new Insets(0, 0, 0, 5);
+		gbc_lblViernes.gridx = 8;
+		gbc_lblViernes.gridy = 0;
+		add(lblViernes, gbc_lblViernes);
+		
+		JLabel lblSabado = new JLabel("Sabado");
+		GridBagConstraints gbc_lblSabado = new GridBagConstraints();
+		gbc_lblSabado.gridx = 10;
+		gbc_lblSabado.gridy = 0;
+		add(lblSabado, gbc_lblSabado);
+
+	}
+
+}

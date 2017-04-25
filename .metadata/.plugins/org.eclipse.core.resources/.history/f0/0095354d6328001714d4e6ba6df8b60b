@@ -1,0 +1,155 @@
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JTextField;
+import javax.swing.JComboBox;
+import javax.swing.ButtonGroup;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JRadioButton;
+
+public class VentanaAltaMateria extends JFrame implements ActionListener{
+
+	private JPanel contentPane;
+	private JTextField tfMateria;
+	private ButtonGroup bt;
+	private JButton btnAtras,
+					btnCrear;
+	private JRadioButton rdbtnVerde,
+						 rdbtnAmarillo,
+						 rdbtnRojo,
+						 rdbtnAzul,
+						 rdbtnRosa,
+						 rdbtnNaranja;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					VentanaAltaMateria frame = new VentanaAltaMateria();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public VentanaAltaMateria() {
+		setTitle("Nueva Materia");
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setAlwaysOnTop(true);
+		setBounds(100, 100, 450, 334);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setLayout(new BorderLayout(0, 0));
+		setContentPane(contentPane);
+		
+		JPanel panel = new JPanel();
+		contentPane.add(panel, BorderLayout.CENTER);
+		panel.setLayout(null);
+		
+		this.btnAtras = new JButton("Atr\u00E1s");
+		this.btnAtras.setBounds(79, 240, 89, 23);
+		panel.add(this.btnAtras);
+		this.btnAtras.addActionListener(this);
+		
+		
+		this.btnCrear = new JButton("Crear");
+		this.btnCrear.setBounds(252, 240, 89, 23);
+		panel.add(this.btnCrear);
+		this.btnCrear.addActionListener(this);
+		
+		JLabel lblNuevaMateria = new JLabel("Nueva Materia");
+		lblNuevaMateria.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblNuevaMateria.setBounds(161, 11, 121, 14);
+		panel.add(lblNuevaMateria);
+		
+		tfMateria = new JTextField();
+		tfMateria.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		tfMateria.setBounds(122, 36, 231, 20);
+		panel.add(tfMateria);
+		tfMateria.setColumns(10);
+		
+		JLabel lblNombreMateria = new JLabel("Nombre Materia");
+		lblNombreMateria.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		lblNombreMateria.setBounds(22, 39, 103, 14);
+		panel.add(lblNombreMateria);
+		
+		JComboBox comboBox = new JComboBox();
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7"}));
+		comboBox.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		comboBox.setBounds(125, 78, 55, 20);
+		panel.add(comboBox);
+		
+		JLabel lblPosicionHorario = new JLabel("Posicion Horario");
+		lblPosicionHorario.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		lblPosicionHorario.setBounds(22, 81, 103, 14);
+		panel.add(lblPosicionHorario);
+		
+		this.bt=new ButtonGroup();
+		
+		
+		this.rdbtnVerde = new JRadioButton("Verde");
+		this.rdbtnVerde.setBounds(98, 197, 109, 23);
+		panel.add(this.rdbtnVerde);
+		this.bt.add(this.rdbtnVerde);
+		
+		this.rdbtnAmarillo = new JRadioButton("Amarillo");
+		this.rdbtnAmarillo.setBounds(98, 171, 109, 23);
+		panel.add(this.rdbtnAmarillo);
+		this.bt.add(this.rdbtnAmarillo);
+		
+		this.rdbtnNaranja = new JRadioButton("Naranja");
+		this.rdbtnNaranja.setBounds(226, 171, 109, 23);
+		panel.add(this.rdbtnNaranja);
+		this.bt.add(this.rdbtnNaranja);
+		
+		this.rdbtnRosa = new JRadioButton("Rosa");
+		this.rdbtnRosa.setBounds(226, 197, 109, 23);
+		panel.add(this.rdbtnRosa);
+		this.bt.add(this.rdbtnRosa);
+		
+		JRadioButton rdbtnAzul = new JRadioButton("Azul");
+		rdbtnAzul.setBounds(226, 147, 109, 23);
+		panel.add(rdbtnAzul);
+		this.bt.add(rdbtnAzul);
+		
+		JRadioButton rdbtnRojo = new JRadioButton("Rojo");
+		rdbtnRojo.setBounds(98, 147, 109, 23);
+		panel.add(rdbtnRojo);
+		this.bt.add(rdbtnRojo);
+		
+		JLabel lblEscogeElColor = new JLabel("Escoge el Color");
+		lblEscogeElColor.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		lblEscogeElColor.setBounds(161, 126, 97, 14);
+		panel.add(lblEscogeElColor);
+		
+		
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent evt) {
+		if (evt.getSource()==this.btnCrear){
+			
+		}
+		else if(evt.getSource()==this.btnAtras){
+			
+		}
+		
+	}
+}

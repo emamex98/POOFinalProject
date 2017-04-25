@@ -1,0 +1,42 @@
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+public class Ventana extends JFrame {
+	
+	private Agenda panelAgenda;
+	private Asignaturas panelAsignaturas;
+	
+	private JPanel menuPrincipal;
+	
+	private Agenda agenda;
+	
+	public Ventana(){
+		super("Agenda Estudiante");
+		
+		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		//this.setSize(1000,700);
+		this.setVisible(true);
+		this.setResizable(false);	
+		
+		this.menuPrincipal = new JPanel();
+		this.menuPrincipal.setPreferredSize(new Dimension(1000,80));
+		this.menuPrincipal.setBackground(new Color(216,216,216));
+		
+		this.agenda = new Agenda();
+		
+		this.add(this.menuPrincipal, BorderLayout.NORTH);
+		this.add(this.agenda, BorderLayout.SOUTH);
+		
+		this.pack();
+		
+	}
+	
+	public static void main(String[] Args){
+		new Ventana();
+	}
+	
+}

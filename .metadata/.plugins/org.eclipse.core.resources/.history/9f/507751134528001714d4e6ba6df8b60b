@@ -1,0 +1,17 @@
+import java.awt.Color;
+import java.awt.Dimension;
+
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+public class MicroPanelAgenda extends JPanel{
+	
+	MicroPanelAgenda(String nombreMateria){
+		super();
+		this.setPreferredSize(new Dimension(170,50));
+		JLabel materia = new JLabel(nombreMateria);
+		this.setBackground(Color.RED);
+		this.add(materia);
+		
+	}
+}

@@ -1,0 +1,57 @@
+
+public class Tarea {
+	
+	private String nombreTarea,
+				   fechaLimite;
+	
+	private Materia nombreMateria;
+	
+	private boolean terminada;
+	
+	public Tarea(){
+		this.setAllNull();
+		this.nombreMateria = new Materia();
+	}
+	
+	// Setters
+	public void setNombreTarea(String nombreTarea){
+		this.nombreTarea = nombreTarea;
+	}
+	
+	public void setFechaLimite(String fechaLimite){
+		this.fechaLimite = fechaLimite;	
+	}
+	
+	public void setCompletar(boolean terminada){
+		this.terminada = terminada;
+	}
+	
+	public void setNombreMateria(String nombreMateria){
+		this.nombreMateria.setNombreMateria(nombreMateria);
+	}
+	
+	public void setAllNull(){
+		this.nombreTarea = null;
+		this.fechaLimite = null;
+		this.terminada = false;
+		this.nombreMateria.setNombreMateria("");
+	}
+
+	// Getters
+	public String getNombreTarea(){
+		return this.nombreTarea;
+	}
+	
+	public String getFechaLimite(){
+		return this.fechaLimite;	
+	}
+	
+	public boolean getCompletar(){
+		return this.terminada;
+	}
+	
+	public String getNombreMateria(){
+		return this.nombreMateria.getNombreMateria();
+	}
+	
+}

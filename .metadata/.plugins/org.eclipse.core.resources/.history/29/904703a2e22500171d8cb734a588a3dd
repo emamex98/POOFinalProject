@@ -1,0 +1,16 @@
+import java.awt.Dimension;
+import javax.swing.JFrame;
+
+public class Ventana extends JFrame {
+	
+	public Ventana(){
+		super("Agenda Estudiante");
+		this.setPreferredSize(new Dimension(800,600));
+		this.setVisible(true);
+	}
+	
+	public static void main(String[] Args){
+		new Ventana();
+	}
+	
+}

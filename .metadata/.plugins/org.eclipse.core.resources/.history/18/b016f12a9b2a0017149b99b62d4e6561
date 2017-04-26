@@ -3,15 +3,11 @@ import javax.swing.JLabel;
 
 import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 import javax.swing.JButton;
-import javax.swing.SwingConstants;
 
-public class PanelCalificacion extends JPanel implements ActionListener {
+public class PanelCalificacion extends JPanel {
 	private JTextField txtProyecto;
 	private JTextField txtTareas;
 	private JTextField txtQuizzes;
@@ -59,9 +55,7 @@ public class PanelCalificacion extends JPanel implements ActionListener {
 	private JLabel label_5;
 	private JLabel lbCalFinObj;
 	private JLabel lbCalFinObje;
-	private JLabel lblCalFnMin,
-				   lbPorEx,
-				   lbPorExF;
+	private JLabel lblCalFnMin;
 	private JButton btnCalMensual;
 	private JButton btnCalSem;
 	
@@ -76,7 +70,7 @@ public class PanelCalificacion extends JPanel implements ActionListener {
 	public PanelCalificacion() {
 		SpringLayout springLayout = new SpringLayout();
 		setLayout(springLayout);
-		this.setPreferredSize(new Dimension(1000, 500));
+		this.setPreferredSize(new Dimension(960, 500));
 		JLabel lblCalculadorDeCalificaciones = new JLabel("Calculador de Calificaciones");
 		springLayout.putConstraint(SpringLayout.NORTH, lblCalculadorDeCalificaciones, 40, SpringLayout.NORTH, this);
 		springLayout.putConstraint(SpringLayout.WEST, lblCalculadorDeCalificaciones, 393, SpringLayout.WEST, this);
@@ -272,13 +266,12 @@ public class PanelCalificacion extends JPanel implements ActionListener {
 		lblExamen.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		add(lblExamen);
 		
-		
 		lblCalEx = new JLabel(" ");
-		springLayout.putConstraint(SpringLayout.NORTH, lblCalEx, 39, SpringLayout.SOUTH, tfPorOtro);
-		//springLayout.putConstraint(SpringLayout.EAST, lblCalEx, 5, SpringLayout.EAST, lblCalficacion);
-		//springLayout.putConstraint(SpringLayout.EAST,lblCalEx , 0, SpringLayout.EAST, lblMinima);
-		lblCalEx.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblCalEx.setMinimumSize(new Dimension(202, 20));
+		springLayout.putConstraint(SpringLayout.NORTH, lblCalEx, 422, SpringLayout.NORTH, this);
+		springLayout.putConstraint(SpringLayout.WEST, lblCalEx, 288, SpringLayout.WEST, this);
+		springLayout.putConstraint(SpringLayout.SOUTH, lblCalEx, 436, SpringLayout.NORTH, this);
+		springLayout.putConstraint(SpringLayout.EAST, lblCalEx, 355, SpringLayout.WEST, this);
+		lblCalEx.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		add(lblCalEx);
 		
 		txtProyectoFinal = new JTextField();
@@ -311,73 +304,76 @@ public class PanelCalificacion extends JPanel implements ActionListener {
 		txtOtros_1 = new JTextField();
 		springLayout.putConstraint(SpringLayout.WEST, txtProyectoFinal, 0, SpringLayout.WEST, txtOtros_1);
 		springLayout.putConstraint(SpringLayout.NORTH, txtOtros_1, 0, SpringLayout.NORTH, txtEntregables);
+		springLayout.putConstraint(SpringLayout.EAST, txtOtros_1, 699, SpringLayout.WEST, this);
 		txtOtros_1.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		txtOtros_1.setText("Otros");
 		add(txtOtros_1);
 		txtOtros_1.setColumns(10);
 		
 		txtOtros_2 = new JTextField();
-		springLayout.putConstraint(SpringLayout.NORTH, txtOtros_2, 0, SpringLayout.NORTH, txtOtros);
 		springLayout.putConstraint(SpringLayout.WEST, txtOtros_2, 258, SpringLayout.EAST, tfCalOtro);
+		springLayout.putConstraint(SpringLayout.EAST, txtOtros_2, -261, SpringLayout.EAST, this);
+		springLayout.putConstraint(SpringLayout.WEST, txtOtros_1, 0, SpringLayout.WEST, txtOtros_2);
+		springLayout.putConstraint(SpringLayout.NORTH, txtOtros_2, 0, SpringLayout.NORTH, txtOtros);
 		springLayout.putConstraint(SpringLayout.SOUTH, txtOtros_2, 362, SpringLayout.NORTH, this);
-		springLayout.putConstraint(SpringLayout.EAST, txtOtros_2, 0, SpringLayout.EAST, txtProyectoFinal);
 		txtOtros_2.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		txtOtros_2.setText("Otros");
 		add(txtOtros_2);
 		txtOtros_2.setColumns(10);
 		
 		lblExamenFinal = new JLabel("Examen Final");
-		springLayout.putConstraint(SpringLayout.NORTH, lblExamenFinal, -1, SpringLayout.NORTH, lblExamen);
-		springLayout.putConstraint(SpringLayout.WEST, lblExamenFinal, 0, SpringLayout.WEST, txtProyectoFinal);
-		springLayout.putConstraint(SpringLayout.EAST, lblExamenFinal, 699, SpringLayout.WEST, this);
+		springLayout.putConstraint(SpringLayout.NORTH, lblExamenFinal, 422, SpringLayout.NORTH, this);
+		springLayout.putConstraint(SpringLayout.WEST, lblExamenFinal, 626, SpringLayout.WEST, this);
+		springLayout.putConstraint(SpringLayout.SOUTH, lblExamenFinal, 436, SpringLayout.NORTH, this);
+		springLayout.putConstraint(SpringLayout.EAST, lblExamenFinal, 712, SpringLayout.WEST, this);
 		lblExamenFinal.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		add(lblExamenFinal);
 		
 		tfPorParc1 = new JTextField();
 		springLayout.putConstraint(SpringLayout.NORTH, tfPorParc1, 0, SpringLayout.NORTH, txtProyecto);
+		springLayout.putConstraint(SpringLayout.WEST, tfPorParc1, 731, SpringLayout.WEST, this);
+		springLayout.putConstraint(SpringLayout.SOUTH, tfPorParc1, 177, SpringLayout.NORTH, this);
 		tfPorParc1.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		add(tfPorParc1);
 		tfPorParc1.setColumns(10);
 		
 		tfPorParc2 = new JTextField();
-		springLayout.putConstraint(SpringLayout.WEST, tfPorParc1, 0, SpringLayout.WEST, tfPorParc2);
-		springLayout.putConstraint(SpringLayout.SOUTH, tfPorParc1, -23, SpringLayout.NORTH, tfPorParc2);
 		springLayout.putConstraint(SpringLayout.EAST, tfPorParc1, 0, SpringLayout.EAST, tfPorParc2);
 		springLayout.putConstraint(SpringLayout.NORTH, tfPorParc2, 0, SpringLayout.NORTH, txtTareas);
-		springLayout.putConstraint(SpringLayout.WEST, tfPorParc2, 731, SpringLayout.WEST, this);
 		springLayout.putConstraint(SpringLayout.EAST, tfPorParc2, 777, SpringLayout.WEST, this);
 		tfPorParc2.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		add(tfPorParc2);
 		tfPorParc2.setColumns(10);
 		
 		tfPorProyF = new JTextField();
+		springLayout.putConstraint(SpringLayout.WEST, tfPorParc2, 0, SpringLayout.WEST, tfPorProyF);
 		springLayout.putConstraint(SpringLayout.NORTH, tfPorProyF, 0, SpringLayout.NORTH, txtQuizzes);
-		springLayout.putConstraint(SpringLayout.WEST, tfPorProyF, 731, SpringLayout.WEST, this);
 		springLayout.putConstraint(SpringLayout.EAST, tfPorProyF, 777, SpringLayout.WEST, this);
 		tfPorProyF.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		add(tfPorProyF);
 		tfPorProyF.setColumns(10);
 		
 		tfPorOtro1 = new JTextField();
+		springLayout.putConstraint(SpringLayout.WEST, tfPorProyF, 0, SpringLayout.WEST, tfPorOtro1);
+		springLayout.putConstraint(SpringLayout.NORTH, tfPorOtro1, 0, SpringLayout.NORTH, txtEntregables);
 		springLayout.putConstraint(SpringLayout.WEST, tfPorOtro1, 731, SpringLayout.WEST, this);
-		springLayout.putConstraint(SpringLayout.EAST, txtOtros_1, -32, SpringLayout.WEST, tfPorOtro1);
-		springLayout.putConstraint(SpringLayout.NORTH, tfPorOtro1, -1, SpringLayout.NORTH, txtEntregables);
 		tfPorOtro1.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		add(tfPorOtro1);
 		tfPorOtro1.setColumns(10);
 		
 		tfPorOtro2 = new JTextField();
+		springLayout.putConstraint(SpringLayout.EAST, tfPorOtro1, 0, SpringLayout.EAST, tfPorOtro2);
 		springLayout.putConstraint(SpringLayout.NORTH, tfPorOtro2, 0, SpringLayout.NORTH, txtOtros);
 		springLayout.putConstraint(SpringLayout.WEST, tfPorOtro2, 32, SpringLayout.EAST, txtOtros_2);
+		springLayout.putConstraint(SpringLayout.EAST, tfPorOtro2, 777, SpringLayout.WEST, this);
 		tfPorOtro2.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		add(tfPorOtro2);
 		tfPorOtro2.setColumns(10);
 		
 		tfCalParc1 = new JTextField();
-		springLayout.putConstraint(SpringLayout.EAST, tfCalParc1, -86, SpringLayout.EAST, this);
-		tfCalParc1.setHorizontalAlignment(SwingConstants.LEFT);
 		springLayout.putConstraint(SpringLayout.NORTH, tfCalParc1, -1, SpringLayout.NORTH, txtProyecto);
-		springLayout.putConstraint(SpringLayout.WEST, tfCalParc1, 828, SpringLayout.WEST, this);
+		springLayout.putConstraint(SpringLayout.WEST, tfCalParc1, 51, SpringLayout.EAST, tfPorParc1);
+		springLayout.putConstraint(SpringLayout.EAST, tfCalParc1, -46, SpringLayout.EAST, this);
 		tfCalParc1.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		add(tfCalParc1);
 		tfCalParc1.setColumns(10);
@@ -385,41 +381,40 @@ public class PanelCalificacion extends JPanel implements ActionListener {
 		tfCalParc2 = new JTextField();
 		springLayout.putConstraint(SpringLayout.NORTH, tfCalParc2, -1, SpringLayout.NORTH, txtTareas);
 		springLayout.putConstraint(SpringLayout.WEST, tfCalParc2, 51, SpringLayout.EAST, tfPorParc2);
-		springLayout.putConstraint(SpringLayout.EAST, tfCalParc2, -86, SpringLayout.EAST, this);
+		springLayout.putConstraint(SpringLayout.EAST, tfCalParc2, -46, SpringLayout.EAST, this);
 		tfCalParc2.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		add(tfCalParc2);
 		tfCalParc2.setColumns(10);
 		
 		tfCalProyF = new JTextField();
 		springLayout.putConstraint(SpringLayout.NORTH, tfCalProyF, -1, SpringLayout.NORTH, txtQuizzes);
-		springLayout.putConstraint(SpringLayout.WEST, tfCalProyF, 51, SpringLayout.EAST, tfPorProyF);
-		springLayout.putConstraint(SpringLayout.EAST, tfCalProyF, -86, SpringLayout.EAST, this);
+		springLayout.putConstraint(SpringLayout.WEST, tfCalProyF, 0, SpringLayout.WEST, tfCalParc1);
+		springLayout.putConstraint(SpringLayout.EAST, tfCalProyF, 914, SpringLayout.WEST, this);
 		tfCalProyF.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		add(tfCalProyF);
 		tfCalProyF.setColumns(10);
 		
 		tfCalOtro1 = new JTextField();
-		springLayout.putConstraint(SpringLayout.WEST, tfCalOtro1, 828, SpringLayout.WEST, this);
-		springLayout.putConstraint(SpringLayout.EAST, tfCalOtro1, -86, SpringLayout.EAST, this);
-		springLayout.putConstraint(SpringLayout.EAST, tfPorOtro1, -50, SpringLayout.WEST, tfCalOtro1);
 		springLayout.putConstraint(SpringLayout.NORTH, tfCalOtro1, -1, SpringLayout.NORTH, txtEntregables);
+		springLayout.putConstraint(SpringLayout.WEST, tfCalOtro1, 0, SpringLayout.WEST, tfCalParc1);
+		springLayout.putConstraint(SpringLayout.EAST, tfCalOtro1, 914, SpringLayout.WEST, this);
 		tfCalOtro1.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		add(tfCalOtro1);
 		tfCalOtro1.setColumns(10);
 		
 		tfCalOtro2 = new JTextField();
-		springLayout.putConstraint(SpringLayout.EAST, tfPorOtro2, -51, SpringLayout.WEST, tfCalOtro2);
-		springLayout.putConstraint(SpringLayout.WEST, tfCalOtro2, 828, SpringLayout.WEST, this);
-		springLayout.putConstraint(SpringLayout.EAST, tfCalOtro2, 0, SpringLayout.EAST, lblCalculador);
-		springLayout.putConstraint(SpringLayout.NORTH, tfCalOtro2, -1, SpringLayout.NORTH, txtOtros);
+		springLayout.putConstraint(SpringLayout.NORTH, tfCalOtro2, 0, SpringLayout.NORTH, txtOtros);
+		springLayout.putConstraint(SpringLayout.WEST, tfCalOtro2, 0, SpringLayout.WEST, tfCalParc1);
+		springLayout.putConstraint(SpringLayout.SOUTH, tfCalOtro2, 362, SpringLayout.NORTH, this);
+		springLayout.putConstraint(SpringLayout.EAST, tfCalOtro2, 914, SpringLayout.WEST, this);
 		tfCalOtro2.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		add(tfCalOtro2);
 		tfCalOtro2.setColumns(10);
 		
 		lblCalificacion = new JLabel("Calificacion /100");
-		springLayout.putConstraint(SpringLayout.EAST, lblCalificacion, -26, SpringLayout.EAST, this);
 		springLayout.putConstraint(SpringLayout.NORTH, lblCalificacion, 3, SpringLayout.NORTH, lblTrabajo);
 		springLayout.putConstraint(SpringLayout.SOUTH, lblCalificacion, 142, SpringLayout.NORTH, this);
+		springLayout.putConstraint(SpringLayout.EAST, lblCalificacion, 934, SpringLayout.WEST, this);
 		lblCalificacion.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		add(lblCalificacion);
 		
@@ -432,7 +427,6 @@ public class PanelCalificacion extends JPanel implements ActionListener {
 		add(label_2);
 		
 		label_3 = new JLabel("%");
-		springLayout.putConstraint(SpringLayout.WEST, lblCalificacion, 50, SpringLayout.EAST, label_3);
 		springLayout.putConstraint(SpringLayout.NORTH, label_3, 119, SpringLayout.NORTH, this);
 		springLayout.putConstraint(SpringLayout.WEST, label_3, 751, SpringLayout.WEST, this);
 		springLayout.putConstraint(SpringLayout.SOUTH, label_3, 146, SpringLayout.NORTH, this);
@@ -450,7 +444,6 @@ public class PanelCalificacion extends JPanel implements ActionListener {
 		tfCalObj.setColumns(10);
 		
 		tfCalMin = new JTextField();
-		springLayout.putConstraint(SpringLayout.WEST, txtOtros_1, 32, SpringLayout.EAST, tfCalMin);
 		springLayout.putConstraint(SpringLayout.NORTH, tfCalMin, 295, SpringLayout.NORTH, this);
 		springLayout.putConstraint(SpringLayout.WEST, tfCalMin, 495, SpringLayout.WEST, this);
 		springLayout.putConstraint(SpringLayout.SOUTH, tfCalMin, 315, SpringLayout.NORTH, this);
@@ -476,89 +469,72 @@ public class PanelCalificacion extends JPanel implements ActionListener {
 		add(lblCal);
 		
 		lbCalExObj = new JLabel(" ");
-		springLayout.putConstraint(SpringLayout.WEST, lbCalExObj, 190, SpringLayout.WEST, this);
-		springLayout.putConstraint(SpringLayout.SOUTH, lblCalEx, -24, SpringLayout.NORTH, lbCalExObj);
-		springLayout.putConstraint(SpringLayout.EAST, lblCalEx, 0, SpringLayout.EAST, lbCalExObj);
-		springLayout.putConstraint(SpringLayout.NORTH, lbCalExObj, 445, SpringLayout.NORTH, this);
-		lbCalExObj.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		springLayout.putConstraint(SpringLayout.NORTH, lbCalExObj, 461, SpringLayout.NORTH, this);
+		springLayout.putConstraint(SpringLayout.WEST, lbCalExObj, 288, SpringLayout.WEST, this);
+		springLayout.putConstraint(SpringLayout.SOUTH, lbCalExObj, 475, SpringLayout.NORTH, this);
+		springLayout.putConstraint(SpringLayout.EAST, lbCalExObj, 355, SpringLayout.WEST, this);
+		lbCalExObj.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		add(lbCalExObj);
-		lbCalExObj.setMinimumSize(new Dimension(215, 20));
 		
 		lblMinima = new JLabel("Minima");
-		springLayout.putConstraint(SpringLayout.WEST, lblMinima, 126, SpringLayout.WEST, this);
-		springLayout.putConstraint(SpringLayout.EAST, lblMinima, -816, SpringLayout.EAST, this);
-		springLayout.putConstraint(SpringLayout.WEST, lblCalEx, 6, SpringLayout.EAST, lblMinima);
-		springLayout.putConstraint(SpringLayout.NORTH, lblMinima, 404, SpringLayout.NORTH, this);
-		lblMinima.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		springLayout.putConstraint(SpringLayout.NORTH, lblMinima, 422, SpringLayout.NORTH, this);
+		springLayout.putConstraint(SpringLayout.WEST, lblMinima, 232, SpringLayout.WEST, this);
+		springLayout.putConstraint(SpringLayout.EAST, lblMinima, 278, SpringLayout.WEST, this);
 		add(lblMinima);
 		
 		lbObjetivo = new JLabel("Objetivo");
-		springLayout.putConstraint(SpringLayout.NORTH, lbObjetivo, 3, SpringLayout.NORTH, lbCalExObj);
-		springLayout.putConstraint(SpringLayout.EAST, lbObjetivo, -24, SpringLayout.WEST, lbCalExObj);
-		lbObjetivo.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		springLayout.putConstraint(SpringLayout.NORTH, lbObjetivo, 462, SpringLayout.NORTH, this);
+		springLayout.putConstraint(SpringLayout.WEST, lbObjetivo, 232, SpringLayout.WEST, this);
+		springLayout.putConstraint(SpringLayout.EAST, lbObjetivo, 278, SpringLayout.WEST, this);
 		add(lbObjetivo);
 		
 		label_5 = new JLabel("Minima");
-		springLayout.putConstraint(SpringLayout.NORTH, label_5, 40, SpringLayout.SOUTH, tfPorOtro2);
-		springLayout.putConstraint(SpringLayout.EAST, label_5, -242, SpringLayout.EAST, this);
-		label_5.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		springLayout.putConstraint(SpringLayout.WEST, lblCalificacion, 0, SpringLayout.WEST, label_5);
+		springLayout.putConstraint(SpringLayout.NORTH, label_5, 421, SpringLayout.NORTH, this);
+		springLayout.putConstraint(SpringLayout.WEST, label_5, 817, SpringLayout.WEST, this);
+		springLayout.putConstraint(SpringLayout.EAST, label_5, 863, SpringLayout.WEST, this);
 		add(label_5);
 		
 		lbCalFinObj = new JLabel("Objetivo");
-		springLayout.putConstraint(SpringLayout.EAST, lbCalFinObj, -236, SpringLayout.EAST, this);
-		lbCalFinObj.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		springLayout.putConstraint(SpringLayout.NORTH, lbCalFinObj, 461, SpringLayout.NORTH, this);
+		springLayout.putConstraint(SpringLayout.WEST, lbCalFinObj, 817, SpringLayout.WEST, this);
+		springLayout.putConstraint(SpringLayout.EAST, lbCalFinObj, 863, SpringLayout.WEST, this);
 		add(lbCalFinObj);
 		
 		lbCalFinObje = new JLabel(" ");
-		springLayout.putConstraint(SpringLayout.WEST, lbCalFinObje, 29, SpringLayout.WEST, label_3);
-		lbCalFinObje.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		springLayout.putConstraint(SpringLayout.NORTH, lbCalFinObje, 460, SpringLayout.NORTH, this);
+		springLayout.putConstraint(SpringLayout.WEST, lbCalFinObje, 873, SpringLayout.WEST, this);
+		springLayout.putConstraint(SpringLayout.SOUTH, lbCalFinObje, 474, SpringLayout.NORTH, this);
+		springLayout.putConstraint(SpringLayout.EAST, lbCalFinObje, 940, SpringLayout.WEST, this);
+		lbCalFinObje.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		add(lbCalFinObje);
 		
 		lblCalFnMin = new JLabel(" ");
-		springLayout.putConstraint(SpringLayout.NORTH, lbCalFinObje, 24, SpringLayout.SOUTH, lblCalFnMin);
-		springLayout.putConstraint(SpringLayout.NORTH, lblCalFnMin, 38, SpringLayout.SOUTH, tfCalOtro2);
-		springLayout.putConstraint(SpringLayout.EAST, lbCalFinObje, 0, SpringLayout.EAST, lblCalFnMin);
-		springLayout.putConstraint(SpringLayout.WEST, lblCalFnMin, 22, SpringLayout.EAST, label_5);
-		springLayout.putConstraint(SpringLayout.EAST, lblCalFnMin, -10, SpringLayout.EAST, this);
-		lblCalFnMin.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		springLayout.putConstraint(SpringLayout.NORTH, lblCalFnMin, 421, SpringLayout.NORTH, this);
+		springLayout.putConstraint(SpringLayout.WEST, lblCalFnMin, 873, SpringLayout.WEST, this);
+		springLayout.putConstraint(SpringLayout.SOUTH, lblCalFnMin, 435, SpringLayout.NORTH, this);
+		springLayout.putConstraint(SpringLayout.EAST, lblCalFnMin, 940, SpringLayout.WEST, this);
+		lblCalFnMin.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		add(lblCalFnMin);
 		
 		btnCalMensual = new JButton("Calificacion Mensual");
-		springLayout.putConstraint(SpringLayout.WEST, label_5, 131, SpringLayout.EAST, btnCalMensual);
 		springLayout.putConstraint(SpringLayout.NORTH, btnCalMensual, 50, SpringLayout.SOUTH, tfCalMin);
 		springLayout.putConstraint(SpringLayout.WEST, btnCalMensual, 408, SpringLayout.WEST, this);
 		springLayout.putConstraint(SpringLayout.SOUTH, btnCalMensual, 91, SpringLayout.SOUTH, tfCalMin);
 		springLayout.putConstraint(SpringLayout.EAST, btnCalMensual, 0, SpringLayout.EAST, tfCalObj);
 		add(btnCalMensual);
-		btnCalMensual.addActionListener(this);
 		
 		btnCalSem = new JButton("Calificacion Semestral");
-		springLayout.putConstraint(SpringLayout.EAST, lbCalExObj, -16, SpringLayout.WEST, btnCalSem);
-		springLayout.putConstraint(SpringLayout.WEST, lbCalFinObj, 125, SpringLayout.EAST, btnCalSem);
 		springLayout.putConstraint(SpringLayout.NORTH, btnCalSem, 0, SpringLayout.NORTH, lblExamen);
 		springLayout.putConstraint(SpringLayout.WEST, btnCalSem, 0, SpringLayout.WEST, lblObjetivo);
 		springLayout.putConstraint(SpringLayout.SOUTH, btnCalSem, -38, SpringLayout.SOUTH, this);
 		springLayout.putConstraint(SpringLayout.EAST, btnCalSem, 0, SpringLayout.EAST, tfCalObj);
 		add(btnCalSem);
-		btnCalSem.addActionListener(this);
-		
-		this.lbPorEx = new JLabel(" ");
-		springLayout.putConstraint(SpringLayout.WEST, lbObjetivo, 20, SpringLayout.EAST, lbPorEx);
-		springLayout.putConstraint(SpringLayout.NORTH, lbPorEx, 13, SpringLayout.SOUTH, lblExamen);
-		springLayout.putConstraint(SpringLayout.WEST, lbPorEx, 0, SpringLayout.WEST, lblTrabajo);
-		springLayout.putConstraint(SpringLayout.EAST, lbPorEx, -109, SpringLayout.EAST, tfPorProy);
-		add(lbPorEx);
-		
-		this.lbPorExF = new JLabel(" ");
-		springLayout.putConstraint(SpringLayout.NORTH, lbCalFinObj, 10, SpringLayout.SOUTH, lbPorExF);
-		springLayout.putConstraint(SpringLayout.SOUTH, lbPorExF, 0, SpringLayout.SOUTH, lblExamen);
-		springLayout.putConstraint(SpringLayout.EAST, lbPorExF, 0, SpringLayout.EAST, tfPorParc1);
-		add(lbPorExF);
 
 	}
 	
 	public void arrayDatos(){
-		this.valoresCalificacion=new String[24];
+		this.valoresCalificacion=new String[21];
 		this.valoresCalificacion[0]=tfPorProy.getText();
 		this.valoresCalificacion[1]=tfCalProy.getText();
 		this.valoresCalificacion[2]=tfPorTarea.getText();
@@ -569,87 +545,23 @@ public class PanelCalificacion extends JPanel implements ActionListener {
 		this.valoresCalificacion[7]=tfCalEntre.getText();
 		this.valoresCalificacion[8]=tfPorOtro.getText();
 		this.valoresCalificacion[9]=tfCalOtro.getText();
-		
-		this.valoresCalificacion[10]=tfCalObj.getText();
-		this.valoresCalificacion[11]=tfCalMin.getText();
-		
-		
-		this.valoresCalificacion[12]=tfPorParc1.getText();
-		this.valoresCalificacion[13]=tfCalParc1.getText();
-		this.valoresCalificacion[14]=tfPorParc2.getText();
-		this.valoresCalificacion[15]=tfCalParc2.getText();
-		this.valoresCalificacion[16]=tfPorProyF.getText();
-		this.valoresCalificacion[17]=tfCalProyF.getText();
-		this.valoresCalificacion[18]=tfPorOtro1.getText();
-		this.valoresCalificacion[19]=tfCalOtro1.getText();
-		this.valoresCalificacion[20]=tfPorOtro2.getText();
-		this.valoresCalificacion[21]=tfCalOtro2.getText();
-		this.valoresCalificacion[22]=tfCalObj.getText();
-		this.valoresCalificacion[23]=tfCalMin.getText();
-		this.cm = new CalculadoraMeta(this.valoresCalificacion);
-
+		this.valoresCalificacion[10]=tfPorParc1.getText();
+		this.valoresCalificacion[11]=tfCalParc1.getText();
+		this.valoresCalificacion[12]=tfPorParc2.getText();
+		this.valoresCalificacion[13]=tfCalParc2.getText();
+		this.valoresCalificacion[14]=tfPorProyF.getText();
+		this.valoresCalificacion[15]=tfCalProyF.getText();
+		this.valoresCalificacion[16]=tfPorOtro1.getText();
+		this.valoresCalificacion[17]=tfCalOtro1.getText();
+		this.valoresCalificacion[18]=tfPorOtro2.getText();
+		this.valoresCalificacion[19]=tfCalOtro2.getText();
+		this.valoresCalificacion[20]=tfCalObj.getText();
+		this.valoresCalificacion[21]=tfCalMin.getText();
+		this.cm = new CalculadoraMeta(this.valoresCalificacion);		
 				
 		
 		
 		
 	}
 
-	@Override
-	public void actionPerformed(ActionEvent ev) {
-		
-		if(ev.getSource()==btnCalMensual){
-			System.out.println("Boton Calificacion Mensual");
-			this.arrayDatos();
-			this.cm.calcularMensualMinimo();
-			this.cm.calcularMensualObjetivo();
-			System.out.println(this.cm.getMinima());
-			if(this.cm.getMinima()<=100 & this.cm.getObjetivo()>=0){
-				this.lblCalEx.setText(Double.toString(this.cm.getMinima()));
-			} else if(this.cm.getMinima()==-2) {
-				this.lblCalEx.setText("");	
-			} else{
-				this.lblCalEx.setText("Se necesita mas de 100");
-			}
-			
-			if(this.cm.getObjetivo()<=100 & this.cm.getObjetivo()>=0){
-				this.lbCalExObj.setText(Double.toString(this.cm.getObjetivo()));
-			} else if(this.cm.getMinima()==-2) {
-				this.lbCalExObj.setText("");	
-			} else{
-				this.lbCalExObj.setText("Se necesita mas de 100");
-			}
-			
-			//this.lbPorEx.setText(Double.toString(this.cm.getPorEx()));
-			
-		} else if (ev.getSource()==btnCalSem){
-			try{
-			this.arrayDatos();
-			this.cm.calcularSemestralMinima();
-			this.cm.calcularSemestralObjetivo();
-			
-				if(this.cm.getMinimaF()<=100 & this.cm.getMinimaF()>=0){
-					this.lblCalFnMin.setText(Double.toString(this.cm.getMinimaF()));
-				} else if(this.cm.getMinimaF()==-2) {
-					this.lblCalFnMin.setText("");	
-				} else{
-					this.lblCalFnMin.setText("Se necesita m·s de 100");
-				}
-				
-				if(this.cm.getObjetivoF()<=100 & this.cm.getObjetivoF()>=0){
-					this.lbCalFinObje.setText(Double.toString(this.cm.getObjetivoF()));
-				} else if(this.cm.getMinimaF()==-2) {
-					this.lbCalFinObje.setText("");
-					
-				} else{
-					this.lbCalFinObje.setText("Se necesita m·s de 100");
-				}
-				
-				
-				
-			} catch (Exception evt){
-				System.out.println("Error "+evt);
-			}
-		}
-		
-	}
 }

@@ -186,7 +186,7 @@ public class CalculadoraMeta{
 			this.calTotal=(this.totalProy+this.totalTarea+this.totalQuizzes+this.totalEntre+this.totalOtro);
 			this.porTotal=(this.porProyecto+this.porTareas+this.porQuizzes+this.porEntre+this.porOtro);
 
-			if(this.porTotal>99){
+			if(this.porTotal>=100){
 				throw new NumberFormatException();
 			}
 			
@@ -245,7 +245,7 @@ public class CalculadoraMeta{
 			//System.out.println("totalOtro"+this.totalOtro2);
 			this.porTotalF=(this.porPar1+this.porPar2+this.porProyF+this.porOtro1+this.porOtro2);
 			
-			if(this.porTotalF>99){
+			if(this.porTotalF>=100){
 				throw new NumberFormatException();
 			}
 			

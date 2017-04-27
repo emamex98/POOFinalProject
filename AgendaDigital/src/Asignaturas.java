@@ -3,12 +3,22 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.NoSuchElementException;
+import java.util.StringTokenizer;
 import java.awt.event.ActionEvent;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -28,7 +38,6 @@ public class Asignaturas extends JPanel implements ActionListener{
 					 nombreMaterias;
 	
 	private Tarea[] listaTareas;
-	
 	
 	private JTextField tfNombreTarea,
 					   tfFechaLimite,
@@ -127,7 +136,8 @@ public class Asignaturas extends JPanel implements ActionListener{
 				}
 				
 				Asignaturas.this.imprimeTareas();
-				checkLimite();
+				Asignaturas.this.checkLimite();
+				Asignaturas.this.guardarSesion(Asignaturas.this.listaTareas);
 			}
 		});
 		
@@ -146,11 +156,13 @@ public class Asignaturas extends JPanel implements ActionListener{
 					}
 					
 				}
-				reacomodar();
+				Asignaturas.this.reacomodar();
 				Asignaturas.this.imprimeTareas();
-				checkLimite();
+				Asignaturas.this.checkLimite();
+				Asignaturas.this.guardarSesion(Asignaturas.this.listaTareas);
 			}
 		});
+		
 		
 		// Agrega componentes a panelAgregar
 		this.panelAgregar.add(new JLabel("<html><b> AGREGAR NUEVA TAREA:</b></html>"));
@@ -173,8 +185,6 @@ public class Asignaturas extends JPanel implements ActionListener{
 		this.panelAgregar.add(this.btActualizar);
 		this.panelAgregar.add(new JLabel("                                        "));
 		this.panelAgregar.add(mensaje);
-
-		//this.lbNombre
 				
 		// Agrega componentes a panelLista
 		this.panelLista.add(this.columnaCB);
@@ -205,8 +215,11 @@ public class Asignaturas extends JPanel implements ActionListener{
 		this.add(this.panelAgregar, BorderLayout.WEST);
 		this.add(this.panelLista, BorderLayout.EAST);
 		
+		this.cargaSesion();
+		
 	}
 	
+	// Metodo para imprimir tareas
 	public void imprimeTareas(){
 		for(int i=0; i<this.listaTareas.length; i++){
 			if(this.listaTareas[i].getNombreTarea() != null){
@@ -226,6 +239,7 @@ public class Asignaturas extends JPanel implements ActionListener{
 		this.validate();
 	}
 	
+	// Metodo para checar limite
 	public void checkLimite(){
 		if(this.asignaturasActivas > (this.listaTareas.length-1)) {
 			this.tfNombreTarea.setEnabled(false);
@@ -243,6 +257,7 @@ public class Asignaturas extends JPanel implements ActionListener{
 		}
 	}
 	
+	// Metodo para ordenar elementos
 	public void reacomodar(){
 		String emptySpace = "                           ";
 		for(int i=0; i<this.listaTareas.length; i++){
@@ -265,6 +280,68 @@ public class Asignaturas extends JPanel implements ActionListener{
 				
 			}
 		}
+	}
+	
+	public void guardarSesion(Tarea[] listaTareas){		
+			try {
+				PrintWriter copiaTareas = new PrintWriter(new FileWriter("logTareas.txt"));
+				
+				for(int i=0; i<listaTareas.length; i++){
+					if(listaTareas[i].getNombreTarea() != null){
+						copiaTareas.println(listaTareas[i].getNombreTarea() + "," + listaTareas[i].getFechaLimite() + "," + listaTareas[i].getNombreMateria() + ",");
+					}
+				}
+				copiaTareas.println("*END*,");
+				copiaTareas.close();
+			}
+			catch (FileNotFoundException e1) {}
+			catch (IOException e2) {}	
+	}
+	
+	public void cargaSesion(){
+		try {
+			BufferedReader br = new BufferedReader(new FileReader("logTareas.txt"));
+			
+			String linea = "";
+			String acumulador = "";
+			int cuentaLineas = 0;
+
+		      while(linea != null){		        
+		        linea = br.readLine();
+		        acumulador += linea;
+		        cuentaLineas++;
+		      }
+		      
+		      br.close();
+		      System.out.println(acumulador);
+		      
+			
+			StringTokenizer st = new StringTokenizer(acumulador, ",");
+			String tmp = "",
+				   emptySpace = "                           ";;
+			
+			for(int i=0; i<cuentaLineas; i++){
+				tmp = st.nextToken();
+				if(tmp.equals("*END*")){
+					break;
+				}
+				this.listaTareas[i].setNombreTarea(tmp);
+				this.nombresTareas[i].setText(Asignaturas.this.listaTareas[i].getNombreTarea() + emptySpace);
+				tmp = st.nextToken();
+				this.listaTareas[i].setFechaLimite(tmp);
+				this.fechasTareas[i].setText(Asignaturas.this.listaTareas[i].getFechaLimite() + emptySpace);
+				tmp = st.nextToken();
+				this.listaTareas[i].setNombreMateria(tmp);
+				this.nombreMaterias[i].setText(Asignaturas.this.listaTareas[i].getNombreMateria() + emptySpace);
+				this.asignaturasActivas++;
+			}
+			
+			this.imprimeTareas();
+		}
+		catch (FileNotFoundException e1) {}
+		catch (IOException e2) {}	
+		catch (NoSuchElementException e3) { System.out.println("Exception!"); }
+
 	}
 
 	@Override

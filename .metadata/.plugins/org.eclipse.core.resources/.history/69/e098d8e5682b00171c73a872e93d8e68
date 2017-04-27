@@ -1,6 +1,5 @@
 import javax.swing.JPanel;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 
 import java.awt.Dimension;
 import java.awt.Font;
@@ -360,8 +359,8 @@ public class PanelCalificacion extends JPanel implements ActionListener {
 		tfPorProyF.setColumns(10);
 		
 		tfPorOtro1 = new JTextField();
-		springLayout.putConstraint(SpringLayout.EAST, txtOtros_1, -32, SpringLayout.WEST, tfPorOtro1);
 		springLayout.putConstraint(SpringLayout.WEST, tfPorOtro1, 731, SpringLayout.WEST, this);
+		springLayout.putConstraint(SpringLayout.EAST, txtOtros_1, -32, SpringLayout.WEST, tfPorOtro1);
 		springLayout.putConstraint(SpringLayout.NORTH, tfPorOtro1, -1, SpringLayout.NORTH, txtEntregables);
 		tfPorOtro1.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		add(tfPorOtro1);
@@ -442,35 +441,37 @@ public class PanelCalificacion extends JPanel implements ActionListener {
 		add(label_3);
 		
 		tfCalObj = new JTextField();
-		springLayout.putConstraint(SpringLayout.NORTH, tfCalObj, -1, SpringLayout.NORTH, txtEntregables);
-		springLayout.putConstraint(SpringLayout.EAST, tfCalObj, -419, SpringLayout.EAST, this);
+		springLayout.putConstraint(SpringLayout.NORTH, tfCalObj, 201, SpringLayout.NORTH, this);
+		springLayout.putConstraint(SpringLayout.WEST, tfCalObj, 495, SpringLayout.WEST, this);
+		springLayout.putConstraint(SpringLayout.SOUTH, tfCalObj, 221, SpringLayout.NORTH, this);
+		springLayout.putConstraint(SpringLayout.EAST, tfCalObj, 581, SpringLayout.WEST, this);
 		tfCalObj.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		add(tfCalObj);
 		tfCalObj.setColumns(10);
 		
 		tfCalMin = new JTextField();
-		springLayout.putConstraint(SpringLayout.EAST, tfCalMin, -32, SpringLayout.WEST, txtParcial_1);
-		springLayout.putConstraint(SpringLayout.WEST, tfCalObj, 0, SpringLayout.WEST, tfCalMin);
-		springLayout.putConstraint(SpringLayout.NORTH, tfCalMin, 0, SpringLayout.NORTH, txtTareas);
-		springLayout.putConstraint(SpringLayout.SOUTH, tfCalMin, 220, SpringLayout.NORTH, this);
+		springLayout.putConstraint(SpringLayout.WEST, txtOtros_1, 32, SpringLayout.EAST, tfCalMin);
+		springLayout.putConstraint(SpringLayout.NORTH, tfCalMin, 295, SpringLayout.NORTH, this);
+		springLayout.putConstraint(SpringLayout.WEST, tfCalMin, 495, SpringLayout.WEST, this);
+		springLayout.putConstraint(SpringLayout.SOUTH, tfCalMin, 315, SpringLayout.NORTH, this);
+		springLayout.putConstraint(SpringLayout.EAST, tfCalMin, 581, SpringLayout.WEST, this);
 		tfCalMin.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		add(tfCalMin);
 		tfCalMin.setColumns(10);
 		
 		lblObjetivo = new JLabel("Objetivo");
-		springLayout.putConstraint(SpringLayout.WEST, lblObjetivo, 57, SpringLayout.EAST, tfCalEntre);
-		springLayout.putConstraint(SpringLayout.EAST, lblObjetivo, -511, SpringLayout.EAST, this);
-		springLayout.putConstraint(SpringLayout.WEST, txtOtros_1, 124, SpringLayout.EAST, lblObjetivo);
-		springLayout.putConstraint(SpringLayout.NORTH, lblObjetivo, 2, SpringLayout.NORTH, txtEntregables);
+		springLayout.putConstraint(SpringLayout.NORTH, lblObjetivo, 204, SpringLayout.NORTH, this);
+		springLayout.putConstraint(SpringLayout.WEST, lblObjetivo, 408, SpringLayout.WEST, this);
+		springLayout.putConstraint(SpringLayout.SOUTH, lblObjetivo, 218, SpringLayout.NORTH, this);
+		springLayout.putConstraint(SpringLayout.EAST, lblObjetivo, 485, SpringLayout.WEST, this);
 		lblObjetivo.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		add(lblObjetivo);
 		
 		lblCal = new JLabel("Aprobatoria");
-		springLayout.putConstraint(SpringLayout.WEST, tfCalMin, 6, SpringLayout.EAST, lblCal);
-		springLayout.putConstraint(SpringLayout.NORTH, lblCal, 3, SpringLayout.NORTH, txtTareas);
-		springLayout.putConstraint(SpringLayout.WEST, lblCal, 57, SpringLayout.EAST, tfCalTar);
-		springLayout.putConstraint(SpringLayout.SOUTH, lblCal, 217, SpringLayout.NORTH, this);
-		springLayout.putConstraint(SpringLayout.EAST, lblCal, -124, SpringLayout.WEST, txtParcial_1);
+		springLayout.putConstraint(SpringLayout.NORTH, lblCal, 298, SpringLayout.NORTH, this);
+		springLayout.putConstraint(SpringLayout.WEST, lblCal, 408, SpringLayout.WEST, this);
+		springLayout.putConstraint(SpringLayout.SOUTH, lblCal, 312, SpringLayout.NORTH, this);
+		springLayout.putConstraint(SpringLayout.EAST, lblCal, 485, SpringLayout.WEST, this);
 		lblCal.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		add(lblCal);
 		
@@ -523,21 +524,21 @@ public class PanelCalificacion extends JPanel implements ActionListener {
 		add(lblCalFnMin);
 		
 		btnCalMensual = new JButton("Calificacion Mensual");
-		springLayout.putConstraint(SpringLayout.NORTH, btnCalMensual, 53, SpringLayout.SOUTH, lblObjetivo);
-		springLayout.putConstraint(SpringLayout.WEST, btnCalMensual, 16, SpringLayout.EAST, lblCalEx);
-		springLayout.putConstraint(SpringLayout.EAST, btnCalMensual, -419, SpringLayout.EAST, this);
 		springLayout.putConstraint(SpringLayout.WEST, label_5, 131, SpringLayout.EAST, btnCalMensual);
+		springLayout.putConstraint(SpringLayout.NORTH, btnCalMensual, 50, SpringLayout.SOUTH, tfCalMin);
+		springLayout.putConstraint(SpringLayout.WEST, btnCalMensual, 408, SpringLayout.WEST, this);
+		springLayout.putConstraint(SpringLayout.SOUTH, btnCalMensual, 91, SpringLayout.SOUTH, tfCalMin);
+		springLayout.putConstraint(SpringLayout.EAST, btnCalMensual, 0, SpringLayout.EAST, tfCalObj);
 		add(btnCalMensual);
 		btnCalMensual.addActionListener(this);
 		
 		btnCalSem = new JButton("Calificacion Semestral");
-		springLayout.putConstraint(SpringLayout.SOUTH, btnCalMensual, -15, SpringLayout.NORTH, btnCalSem);
-		springLayout.putConstraint(SpringLayout.WEST, btnCalSem, 408, SpringLayout.WEST, this);
-		springLayout.putConstraint(SpringLayout.EAST, btnCalSem, -32, SpringLayout.WEST, lblExamenFinal);
 		springLayout.putConstraint(SpringLayout.EAST, lbCalExObj, -16, SpringLayout.WEST, btnCalSem);
 		springLayout.putConstraint(SpringLayout.WEST, lbCalFinObj, 125, SpringLayout.EAST, btnCalSem);
 		springLayout.putConstraint(SpringLayout.NORTH, btnCalSem, 0, SpringLayout.NORTH, lblExamen);
+		springLayout.putConstraint(SpringLayout.WEST, btnCalSem, 0, SpringLayout.WEST, lblObjetivo);
 		springLayout.putConstraint(SpringLayout.SOUTH, btnCalSem, -38, SpringLayout.SOUTH, this);
+		springLayout.putConstraint(SpringLayout.EAST, btnCalSem, 0, SpringLayout.EAST, tfCalObj);
 		add(btnCalSem);
 		btnCalSem.addActionListener(this);
 		
@@ -597,82 +598,54 @@ public class PanelCalificacion extends JPanel implements ActionListener {
 	public void actionPerformed(ActionEvent ev) {
 		
 		if(ev.getSource()==btnCalMensual){
-			try{
-//				for(int i=0;i<12;i++){
-//					System.out.println(this.valoresCalificacion[i]);
-//					if(this.valoresCalificacion[i]==null){
-//						System.out.println("Llenar valores mensuales");
-//						throw new NumberFormatException();
-//						
-//					} else {
-//						if(Double.parseDouble(this.valoresCalificacion[i])>100){
-//						throw new NumberFormatException();
-//						}
-//					}
-//				}
-				
-				System.out.println("Boton Calificacion Mensual");
-				this.arrayDatos();
-				this.cm.calcularMensualMinimo();
-				this.cm.calcularMensualObjetivo();
-				//System.out.println(this.cm.getMinima());
-				if(this.cm.getMinima()<=100 && this.cm.getMinima()>=0){
-					this.lblCalEx.setText(Double.toString(this.cm.getMinima()));
-				} else if(this.cm.getMinima()>100){
-					this.lblCalEx.setText("Se necesita m�s de 100");
-				} else {
-					this.lblCalEx.setText("0");
-				}
-				
-				if(this.cm.getObjetivo()<=100 && this.cm.getObjetivo()>=0){
-					this.lbCalExObj.setText(Double.toString(this.cm.getObjetivo()));
-				} else if(this.cm.getObjetivo()>100){
-					this.lbCalExObj.setText("Se necesita m�s de 100");
-				} else {
-					this.lbCalExObj.setText("0");
-				}
-			
-			} catch (NumberFormatException evt){
-				System.out.println(evt);
-				JOptionPane.showMessageDialog(null, "�Asegurate de haber llenado los datos correctamente!");
-			} catch (Exception evt){
-				JOptionPane.showMessageDialog(null, "�Error! "+evt);
+			System.out.println("Boton Calificacion Mensual");
+			this.arrayDatos();
+			this.cm.calcularMensualMinimo();
+			this.cm.calcularMensualObjetivo();
+			System.out.println(this.cm.getMinima());
+			if(this.cm.getMinima()<=100 & this.cm.getObjetivo()>=0){
+				this.lblCalEx.setText(Double.toString(this.cm.getMinima()));
+			} else if(this.cm.getMinima()==-2) {
+				this.lblCalEx.setText("");	
+			} else{
+				this.lblCalEx.setText("Se necesita mas de 100");
 			}
-		
 			
-				
-				//this.lbPorEx.setText(Double.toString(this.cm.getPorEx()));
+			if(this.cm.getObjetivo()<=100 & this.cm.getObjetivo()>=0){
+				this.lbCalExObj.setText(Double.toString(this.cm.getObjetivo()));
+			} else if(this.cm.getMinima()==-2) {
+				this.lbCalExObj.setText("");	
+			} else{
+				this.lbCalExObj.setText("Se necesita mas de 100");
+			}
+			
+			//this.lbPorEx.setText(Double.toString(this.cm.getPorEx()));
 			
 		} else if (ev.getSource()==btnCalSem){
-			
 			try{
-				System.out.println("Boton Calificacion Semestral");
-				this.arrayDatos();
-				this.cm.calcularSemestralMinima();
-				this.cm.calcularSemestralObjetivo();
+			this.arrayDatos();
+			this.cm.calcularSemestralMinima();
+			this.cm.calcularSemestralObjetivo();
+			
+				if(this.cm.getMinimaF()<=100 & this.cm.getMinimaF()>=0){
+					this.lblCalFnMin.setText(Double.toString(this.cm.getMinimaF()));
+				} else if(this.cm.getMinimaF()==-2) {
+					this.lblCalFnMin.setText("");	
+				} else{
+					this.lblCalFnMin.setText("Se necesita m·s de 100");
+				}
 				
-					if(this.cm.getMinimaF()<=100 && this.cm.getMinimaF()>=0){
-						this.lblCalFnMin.setText(Double.toString(this.cm.getMinimaF()));
-					} else if(this.cm.getMinimaF()==-2) {
-						this.lblCalFnMin.setText("");	
-					} else if(this.cm.getMinimaF()>100){
-						this.lblCalFnMin.setText("Se necesita m�s de 100");
-					} else {
-						this.lblCalFnMin.setText("0");
-					}
+				if(this.cm.getObjetivoF()<=100 & this.cm.getObjetivoF()>=0){
+					this.lbCalFinObje.setText(Double.toString(this.cm.getObjetivoF()));
+				} else if(this.cm.getMinimaF()==-2) {
+					this.lbCalFinObje.setText("");
 					
-					if(this.cm.getObjetivoF()<=100 && this.cm.getObjetivoF()>=0){
-						this.lbCalFinObje.setText(Double.toString(this.cm.getObjetivoF()));
-					} else if(this.cm.getMinimaF()==-2) {
-						this.lbCalFinObje.setText("");
-					} else if(this.cm.getObjetivoF()>100){
-						this.lbCalFinObje.setText("Se necesita m�s de 100");
-					} else {
-						this.lbCalFinObje.setText("0");
-					}
-					
-					
-					
+				} else{
+					this.lbCalFinObje.setText("Se necesita m·s de 100");
+				}
+				
+				
+				
 			} catch (Exception evt){
 				System.out.println("Error "+evt);
 			}

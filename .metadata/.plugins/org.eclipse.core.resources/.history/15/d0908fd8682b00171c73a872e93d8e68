@@ -1,3 +1,93 @@
+//import java.awt.Color;
+//import java.awt.Dimension;
+//
+//import javax.swing.JLabel;
+//import javax.swing.JPanel;
+//
+//public class CalculadoraMeta{
+//	private double porProyecto,
+//				calProyecto,
+//				porTareas,
+//				calTareas,
+//				porQuizzes,
+//				calQuizzes,
+//				porEntre,
+//				calEntre,
+//				porOtro,
+//				calOtro,
+//				porPar1,
+//				calPar1,
+//				porPar2,
+//				calPar2,
+//				porProyF,
+//				calProyF,
+//				porOtro1,
+//				calOtro1,
+//				porOtro2,
+//				calOtro2,
+//				porEx,
+//				porExF,
+//				calObj,
+//				calMin;
+//	public CalculadoraMeta(){
+//		
+//	}
+//				
+//	
+//	public CalculadoraMeta(String[] valores){
+//			try{
+//				this.porProyecto=Double.parseDouble(valores[0]);
+//				this.calProyecto=Double.parseDouble(valores[1]);
+//				this.porTareas=Double.parseDouble(valores[2]);
+//				this.calTareas=Double.parseDouble(valores[3]);
+//				this.porQuizzes=Double.parseDouble(valores[4]);
+//				this.calQuizzes=Double.parseDouble(valores[5]);
+//				this.porEntre=Double.parseDouble(valores[6]);
+//				this.calEntre=Double.parseDouble(valores[7]);
+//				this.porOtro=Double.parseDouble(valores[8]);
+//				this.calOtro=Double.parseDouble(valores[9]);
+//				this.porPar1=Double.parseDouble(valores[10]);
+//				this.calPar1=Double.parseDouble(valores[11]);
+//				this.porPar2=Double.parseDouble(valores[12]);
+//				this.calPar2=Double.parseDouble(valores[13]);
+//				this.porProyF=Double.parseDouble(valores[14]);
+//				this.calProyF=Double.parseDouble(valores[15]);
+//				this.porOtro1=Double.parseDouble(valores[16]);
+//				this.calOtro1=Double.parseDouble(valores[17]);
+//				this.porOtro2=Double.parseDouble(valores[18]);
+//				this.calOtro2=Double.parseDouble(valores[19]);
+//				this.calObj=Double.parseDouble(valores[20]);
+//				this.calMin=Double.parseDouble(valores[21]);
+//			}
+//			catch(NumberFormatException evt){
+//				
+//			}
+//	}
+//	
+//	public double calcularMensual(){
+//		//Faltan excepciones
+//		double totalProy,
+//			totalTarea,
+//			totalQuizzes,
+//			totalEntre,
+//			totalOtro,
+//			objetivo,
+//			minima,
+//			porEx;
+//		totalProy=(this.porProyecto/100)*this.calProyecto;
+//		totalTarea=(this.porTareas/100)*this.calTareas;
+//		totalQuizzes=(this.porQuizzes/100)*this.calQuizzes;
+//		totalEntre=(this.porEntre/100)*this.calEntre;
+//		totalOtro=(this.porOtro/100)*this.calOtro;		
+//		porEx=100-(this.porProyecto+this.porTareas+this.porQuizzes+this.porEntre+this.porOtro);
+//		objetivo=(this.calObj/porEx)*100;
+//		minima=(this.calMin/porEx)*100;
+//		
+//		return minima;
+//	}
+//
+//}
+
 import java.awt.Color;
 import java.awt.Dimension;
 
@@ -65,15 +155,6 @@ public class CalculadoraMeta{
 	public double calcularMensualMinimo(){
 		//Faltan excepciones
 		try{
-			for(int i=0;i<12;i++){
-				System.out.println(i);
-				if(this.valores[i]==null){
-					System.out.println("Llenar valores mensuales");
-					throw new NumberFormatException();
-				} else if(Double.parseDouble(this.valores[i])>100){
-					throw new NumberFormatException();
-				}
-			}
 			this.porProyecto=Double.parseDouble(this.valores[0]);
 			this.calProyecto=Double.parseDouble(this.valores[1]);
 			this.porTareas=Double.parseDouble(this.valores[2]);
@@ -86,11 +167,14 @@ public class CalculadoraMeta{
 			this.calOtro=Double.parseDouble(this.valores[9]);
 			this.calObj=Double.parseDouble(this.valores[10]);
 			this.calMin=Double.parseDouble(this.valores[11]);
-			
+			for(int i=0;i<12;i++){
+				if(this.valores[i]==null){
+						throw new NumberFormatException();
+				}
 		
 		
 			this.totalProy=(this.porProyecto/100)*this.calProyecto;
-			//System.out.println(this.totalProy);
+			System.out.println(this.totalProy);
 			this.totalTarea=(this.porTareas/100)*this.calTareas;
 			//System.out.println(this.totalTarea);
 			this.totalQuizzes=(this.porQuizzes/100)*this.calQuizzes;
@@ -103,8 +187,8 @@ public class CalculadoraMeta{
 			this.porTotal=(this.porProyecto+this.porTareas+this.porQuizzes+this.porEntre+this.porOtro);
 
 			if(this.porTotal>=100){
-				//throw new NumberFormatException();
-			} 
+				throw new NumberFormatException();
+			}
 			
 			//System.out.println("Total Porcentaje"+this.porTotal);
 			this.porEx=100-porTotal;
@@ -112,16 +196,15 @@ public class CalculadoraMeta{
 			this.minima=(this.calMin-this.calTotal)/(porEx/100);
 			return this.minima;
 		
-		
+		}
 			
 		} catch (NumberFormatException evt){
-			System.out.println("PARSE");
 			this.minima=-2;
-			System.out.println("Error: "+evt);
-			JOptionPane.showMessageDialog(null, "�Asegurate de haber llenado los datos correctamente!");
+			System.out.println("Hola");
+			JOptionPane.showMessageDialog(null, "°Asegurate de haber llenado los datos correctamente!");
 			
 		} catch (Exception ev){
-			JOptionPane.showMessageDialog(null, "�Error!: "+ev);
+			JOptionPane.showMessageDialog(null, "°Error!: "+ev);
 			this.minima=-2;
 		}
 		
@@ -146,8 +229,6 @@ public class CalculadoraMeta{
 			for(int i=12;i<24;i++){
 				if(this.valores[i]==null){
 						throw new NumberFormatException();
-				} else if(Double.parseDouble(this.valores[i])>100){
-					throw new NumberFormatException();
 				}
 			}
 			
@@ -178,17 +259,18 @@ public class CalculadoraMeta{
 			return this.minimaF;
 		}
 		catch(NumberFormatException evt){
-			JOptionPane.showMessageDialog(null, "�Asegurate de haber llenado los datos correctamente!");
+			JOptionPane.showMessageDialog(null, "°Asegurate de haber llenado los datos correctamente!");
 			this.minimaF=-2;
 		}
 		catch(Exception e){
-			JOptionPane.showMessageDialog(null, "�Error!: "+e);
+			JOptionPane.showMessageDialog(null, "°Error!: "+e);
 			this.minimaF=-2;
 		}
 		return -2;
 	}
 	
-	public double calcularMensualObjetivo(){	
+	public double calcularMensualObjetivo(){
+			
 		//Faltan excepciones
 		this.objetivo=(this.calObj-this.calTotal)/(this.porEx/100);
 		return this.objetivo;
@@ -227,3 +309,4 @@ public class CalculadoraMeta{
 	}
 
 }
+

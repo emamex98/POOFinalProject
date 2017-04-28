@@ -35,7 +35,7 @@ public class Ventana extends JFrame implements MouseListener {
 	
 	public Ventana(){
 		super("Agenda Estudiante");
-		this.mpa= new MicroPanelAgenda();
+		//this.mpa= new MicroPanelAgenda();
 		// Inicializa ventana
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setVisible(true);

@@ -1,3 +1,5 @@
+import java.awt.Color;
+
 /* Proyecto Final - Programacion Orientada a Objetos
  * 
  * Emanuel Estrada Larios - 50%
@@ -9,9 +11,16 @@
 public class Materia {
 	
 	private String nombreMateria;
+	private int numeroMateria;
+	private Color colorMateria;
 	
-	public Materia(){
-		this.nombreMateria = "";
+	
+	//La clase guarda la materia, su lugar y su color
+	
+	public Materia(String nombre, int numero, Color color){
+		this.nombreMateria = nombre;
+		this.numeroMateria = numero;
+		this.colorMateria = color;
 	}
 	
 	public void setNombreMateria(String nombreMateria){
@@ -21,5 +30,22 @@ public class Materia {
 	public String getNombreMateria(){
 		return this.nombreMateria;
 	}
+
+	public int getNumeroMateria() {
+		return numeroMateria;
+	}
+
+	public void setNumeroMateria(int numeroMateria) {
+		this.numeroMateria = numeroMateria;
+	}
+
+	public Color getColorMateria() {
+		return colorMateria;
+	}
+
+	public void setColorMateria(Color colorMateria) {
+		this.colorMateria = colorMateria;
+	}
+	
 
 }

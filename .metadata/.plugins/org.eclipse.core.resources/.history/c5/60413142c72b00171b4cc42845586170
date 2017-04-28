@@ -470,7 +470,7 @@ public class PanelAgenda extends JPanel {
 		
 
 	}
-	//Se llama para meter al array todo lo que queremos que se guarde en la base de datos.
+	
 	public void modificarLista(Materia mt){
 		int tmp=0;	
 		
@@ -504,7 +504,6 @@ public class PanelAgenda extends JPanel {
 		
 	}
 	
-	//Al iniciar el programa checa el archivo que guarda la agenda para despues cargarla a los paneles
 	public void cargarDatos(){
 		
 		try {

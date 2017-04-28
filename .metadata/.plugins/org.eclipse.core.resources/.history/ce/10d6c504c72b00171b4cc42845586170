@@ -96,7 +96,9 @@ public class MicroPanelAgenda extends JPanel implements MouseListener{
 		
 	}
 	
-	
+	public void inicio(){
+		
+	}
 
 	@Override
 	public void mouseEntered(MouseEvent arg0) {

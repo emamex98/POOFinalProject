@@ -43,7 +43,7 @@ public class MicroPanelAgenda extends JPanel implements MouseListener{
 		this.materia.setNombreMateria(materia);
 		this.materia.setColorMateria(color);
 		this.setPanelMateria();	
-	
+		//this.panelAgenda.addArray(this.materia);
 	}
 	
 	public String getMateria(){
@@ -95,8 +95,6 @@ public class MicroPanelAgenda extends JPanel implements MouseListener{
 		
 		
 	}
-	
-	
 
 	@Override
 	public void mouseEntered(MouseEvent arg0) {

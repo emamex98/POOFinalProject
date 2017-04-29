@@ -2,25 +2,31 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="if(this.por" key="selection"/>
+		<item value="listaM" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="listaM"/>
+			<item value="modific"/>
+			<item value="JPanel"/>
+			<item value="stringto"/>
+			<item value="stringtoke"/>
+			<item value="MicroPanelAgenda("/>
+			<item value="MicroPanelAgenda"/>
 			<item value="if(this.por"/>
-			<item value="this.porProyecto=Double.parseDouble(this.valores[0]);"/>
-			<item value="contadorTareas"/>
 		</list>
 		<list key="replacehistory">
+			<item value="MicroPanelAgenda"/>
 			<item value="tmpTareas"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item value="290" key="DIALOG_WIDTH"/>
-		<item value="1|.SF NS Text|11.0|0|COCOA|1|.SFNSText" key="DIALOG_FONT_NAME"/>
-		<item value="409" key="DIALOG_HEIGHT"/>
-		<item value="444" key="DIALOG_X_ORIGIN"/>
-		<item value="317" key="DIALOG_Y_ORIGIN"/>
+		<item value="267" key="DIALOG_WIDTH"/>
+		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
+		<item value="391" key="DIALOG_HEIGHT"/>
+		<item value="559" key="DIALOG_X_ORIGIN"/>
+		<item value="166" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>

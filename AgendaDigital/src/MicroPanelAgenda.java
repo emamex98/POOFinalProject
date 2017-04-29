@@ -96,6 +96,10 @@ public class MicroPanelAgenda extends JPanel implements MouseListener{
 		
 	}
 	
+	public void eliminarMateria(){
+		this.panelAgenda.eliminarMateria(this.getNum());
+	}
+	
 	
 
 	@Override

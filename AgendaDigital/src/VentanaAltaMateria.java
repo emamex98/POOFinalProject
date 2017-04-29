@@ -35,7 +35,8 @@ public class VentanaAltaMateria extends JFrame implements ActionListener{
 	private JTextField tfMateria;
 	private ButtonGroup bt;
 	private JButton btnAtras,
-					btnCrear;
+					btnCrear,
+					btnEliminar;
 	private JRadioButton rdbtnVerde,
 						 rdbtnAmarillo,
 						 rdbtnRojo,
@@ -138,6 +139,10 @@ public class VentanaAltaMateria extends JFrame implements ActionListener{
 		lblEscogeElColor.setBounds(172, 78, 97, 14);
 		panel.add(lblEscogeElColor);
 		
+		this.btnEliminar = new JButton("Eliminar ");
+		btnEliminar.setBounds(172, 246, 89, 23);
+		panel.add(this.btnEliminar);
+		this.btnEliminar.addActionListener(this);
 		
 	}
 	
@@ -178,6 +183,12 @@ public class VentanaAltaMateria extends JFrame implements ActionListener{
 			
 		}
 		else if(evt.getSource()==this.btnAtras){
+			this.dispose();
+		}
+		
+		else if(evt.getSource()==this.btnEliminar){
+			System.out.println("Eliminar");
+			this.pa.eliminarMateria(this.mpa.getNum());
 			this.dispose();
 		}
 		

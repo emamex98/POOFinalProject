@@ -1,4 +1,2 @@
-Hola,abiosc,POO,
-HolaD,abiosc,POO,
-HolaD4,abiosc,POO,
+HACER ESTO,VDÑ,POO,
 *END*,

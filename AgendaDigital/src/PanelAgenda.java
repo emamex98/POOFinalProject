@@ -517,45 +517,50 @@ public class PanelAgenda extends JPanel {
 			StringTokenizer st;
 			BufferedReader bf=new BufferedReader(new FileReader("logMaterias.txt"));
 			linea=bf.readLine();
-			if(linea.equals("START")){
-				linea=bf.readLine();
-				while (true) {
-						
-						st=new StringTokenizer(linea,",");
-						nombre=st.nextToken();
-						System.out.println(linea);
-						Num=Integer.parseInt(st.nextToken());
-						color=Integer.parseInt(st.nextToken());
-						switch (color){
-							case 0: fondo=Color.RED;
-									break;
-							case 1: fondo=Color.BLUE;
-									break;
-							case 2: fondo=Color.GREEN;
-									break;
-							case 3: fondo=Color.YELLOW;
-									break;
-							case 4: fondo=Color.PINK;
-									break;
-							case 5: fondo=Color.ORANGE;
-									break;
-							default: fondo = Color.WHITE;
-						
-						}
-						
-						for(int f=0;f<this.arrayPaneles.size();f++){
-							if(Num==this.arrayPaneles.get(f).getNum()){
-								this.arrayPaneles.get(f).setMateria(nombre, fondo);
-								this.modificarLista(this.arrayPaneles.get(f).getMaterias());
-								
-							}
-						}
-						linea=bf.readLine();
-					if (linea.equals("END")) {
-						break;
-					}
+				if(linea.equals("START") && !linea.equals("END")){
+					linea=bf.readLine();
 					
-				}
+					while (true) {
+							if(linea.equals("END")){
+								break;
+							}
+							st=new StringTokenizer(linea,",");
+							nombre=st.nextToken();
+							System.out.println(linea);
+							Num=Integer.parseInt(st.nextToken());
+							color=Integer.parseInt(st.nextToken());
+							switch (color){
+								case 0: fondo=Color.RED;
+										break;
+								case 1: fondo=Color.BLUE;
+										break;
+								case 2: fondo=Color.GREEN;
+										break;
+								case 3: fondo=Color.YELLOW;
+										break;
+								case 4: fondo=Color.PINK;
+										break;
+								case 5: fondo=Color.ORANGE;
+										break;
+								default: fondo = Color.WHITE;
+							
+							}
+							
+							for(int f=0;f<this.arrayPaneles.size();f++){
+								if(Num==this.arrayPaneles.get(f).getNum()){
+									this.arrayPaneles.get(f).setMateria(nombre, fondo);
+									this.modificarLista(this.arrayPaneles.get(f).getMaterias());
+									
+								}
+							}
+							linea=bf.readLine();
+						if (linea.equals("END")) {
+							break;
+						}
+						
+					}
+			} else {
+				
 			}
 			
 			
@@ -572,6 +577,82 @@ public class PanelAgenda extends JPanel {
 		this.modificarLista(mt);
 	}
 	
+	public void eliminarMateria(int NumMat){
+		String  linea,
+				nombre;
+		int num;
+		StringTokenizer st;
+		
+		try {
+			BufferedReader bf=new BufferedReader(new FileReader("logMaterias.txt"));
+			linea=bf.readLine();
+			while (true) {
+				linea=bf.readLine();
+				st=new StringTokenizer(linea,",");
+				nombre=st.nextToken();
+				num=Integer.parseInt(st.nextToken());
+				if(num==NumMat){
+					System.out.println("Encontrado");
+					System.out.println(this.listaMaterias.size());
+					
+					this.arrayPaneles.get(NumMat).setMateria(" ", Color.WHITE);
+					
+					
+					for (int i=0;i<this.listaMaterias.size();i++){
+						if(this.listaMaterias.get(i).getNumeroMateria()==NumMat){
+							this.listaMaterias.remove(i);
+							break;
+						}
+//						System.out.println(this.listaMaterias.get(i));
+//						System.out.println(this.listaMaterias.get(i).getNombreMateria());
+//						System.out.println(this.listaMaterias.get(i).getNumeroMateria());
+//						System.out.println(this.listaMaterias.get(i).getColorMateria());
+						System.out.println(" ");
+					}
+					this.actualizar();
+					break;
+				}
+			}
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e){
+			
+		}
+		
+		
+		
+	}
+	public void actualizar(){
+		int tmp=0;	
+		try {
+			PrintWriter materias = new PrintWriter(new FileWriter("logMaterias.txt"));
+			materias.println("START");
+			for(int i=0; i<this.listaMaterias.size();i++){
+				if(this.listaMaterias.get(i).getColorMateria()==Color.RED){
+					tmp=0;
+				} else if(this.listaMaterias.get(i).getColorMateria()==Color.BLUE){
+					tmp=1;
+				} else if(this.listaMaterias.get(i).getColorMateria()==Color.GREEN){
+					tmp=2;
+				} else if(this.listaMaterias.get(i).getColorMateria()==Color.YELLOW){
+					tmp=3;
+				} else if(this.listaMaterias.get(i).getColorMateria()==Color.PINK){
+					tmp=4;
+				} else if(this.listaMaterias.get(i).getColorMateria()==Color.ORANGE){
+					tmp=5;
+				}
+				materias.println(this.listaMaterias.get(i).getNombreMateria()+","+this.listaMaterias.get(i).getNumeroMateria()+","+tmp);
+			}
+			materias.println("END");
+			materias.close();
+		}catch(FileNotFoundException evt){
+			System.out.println("Error: "+evt);
+		}catch(IOException evt){
+			
+		}
+		
+	}
 
 
 }

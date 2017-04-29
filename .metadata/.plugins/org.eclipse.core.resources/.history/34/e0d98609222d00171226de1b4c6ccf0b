@@ -83,10 +83,8 @@ public class MicroPanelAgenda extends JPanel implements MouseListener{
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		if(!(this.getBackground()==Color.WHITE)){
 			if (e.getClickCount() == 2 && !e.isConsumed()) {
 			     e.consume();
-				this.vam.ventanaEditar(); 
 			     this.vam.setVisible(true);
 			    // this.panelAgenda.modificarLista(this.materia);
 			    System.out.println("double clicked");
@@ -94,9 +92,6 @@ public class MicroPanelAgenda extends JPanel implements MouseListener{
 			  else if (e.getClickCount() == 1 && !e.isConsumed()){
 				  System.out.println("Panel Presionado");
 			}
-		} else {
-			this.vam.setVisible(true);
-		}
 		
 		
 	}

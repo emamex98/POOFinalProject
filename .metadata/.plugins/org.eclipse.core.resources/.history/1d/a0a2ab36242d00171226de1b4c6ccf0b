@@ -190,8 +190,10 @@ public class VentanaAltaMateria extends JFrame implements ActionListener{
 					this.dispose();
 				}
 				this.pa.modificarLista(this.mpa.getMaterias());
-				System.out.println(this.tfMateria.getText());
-				
+				if (this.tfMateria.getText()==null){
+					throw new NullPointerException();
+					System.out.println("HOLI");
+				}
 			}
 				
 				

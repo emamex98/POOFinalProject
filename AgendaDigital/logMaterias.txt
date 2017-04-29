@@ -1,6 +1,8 @@
 START
-HOLA,1,1
-COMO ESTAS,8,0
-HOLA,7,2
-HOLA,7,2
+Hola,7,2
+Matemáticas,2,1
+Hola,7,2
+BHOLASDD,8,0
+BHOLASDD,8,0
+,14,2
 END

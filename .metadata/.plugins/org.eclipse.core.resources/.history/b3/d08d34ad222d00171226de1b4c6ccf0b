@@ -15,8 +15,6 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -161,54 +159,46 @@ public class VentanaAltaMateria extends JFrame implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent evt) {
-		try{
-			if (evt.getSource()==this.btnCrear){
-				
-				if(rdbtnVerde.isSelected()){
-					this.mpa.setMateria(this.tfMateria.getText(),Color.GREEN);
-					System.out.println(this.tfMateria.getText());
-					this.dispose();
-				}
-				else if(this.rdbtnNaranja.isSelected()){
-					this.mpa.setMateria(this.tfMateria.getText(),Color.ORANGE);
-					this.dispose();
-				}
-				else if(this.rdbtnAzul.isSelected()){
-					this.mpa.setMateria(this.tfMateria.getText(),Color.BLUE);
-					this.dispose();
-				}
-				else if(this.rdbtnRojo.isSelected()){
-					this.mpa.setMateria(this.tfMateria.getText(),Color.RED);
-					this.dispose();
-				}
-				else if(this.rdbtnAmarillo.isSelected()){
-					this.mpa.setMateria(this.tfMateria.getText(),Color.YELLOW);
-					this.dispose();
-				}
-				else if(this.rdbtnRosa.isSelected()){
-					this.mpa.setMateria(this.tfMateria.getText(),Color.PINK);
-					this.dispose();
-				}
-				this.pa.modificarLista(this.mpa.getMaterias());
+		if (evt.getSource()==this.btnCrear){
+			
+			if(rdbtnVerde.isSelected()){
+				this.mpa.setMateria(this.tfMateria.getText(),Color.GREEN);
 				System.out.println(this.tfMateria.getText());
-				
-			}
-				
-				
-				//this.mpa.guardarSesion();
-				
-			
-			else if(evt.getSource()==this.btnAtras){
 				this.dispose();
 			}
-			
-			else if(evt.getSource()==this.btnEliminar){
-				System.out.println("Eliminar");
-				this.pa.eliminarMateria(this.mpa.getNum());
+			else if(this.rdbtnNaranja.isSelected()){
+				this.mpa.setMateria(this.tfMateria.getText(),Color.ORANGE);
 				this.dispose();
 			}
-		} catch(NullPointerException e) {
-			JOptionPane.showMessageDialog(null, "¡Asegurate de haber llenado todos los datos correctamente!");
+			else if(this.rdbtnAzul.isSelected()){
+				this.mpa.setMateria(this.tfMateria.getText(),Color.BLUE);
+				this.dispose();
+			}
+			else if(this.rdbtnRojo.isSelected()){
+				this.mpa.setMateria(this.tfMateria.getText(),Color.RED);
+				this.dispose();
+			}
+			else if(this.rdbtnAmarillo.isSelected()){
+				this.mpa.setMateria(this.tfMateria.getText(),Color.YELLOW);
+				this.dispose();
+			}
+			else if(this.rdbtnRosa.isSelected()){
+				this.mpa.setMateria(this.tfMateria.getText(),Color.PINK);
+				this.dispose();
+			}
+			this.pa.modificarLista(this.mpa.getMaterias());
+			
+			//this.mpa.guardarSesion();
+			
+		}
+		else if(evt.getSource()==this.btnAtras){
+			this.dispose();
+		}
+		
+		else if(evt.getSource()==this.btnEliminar){
+			System.out.println("Eliminar");
+			this.pa.eliminarMateria(this.mpa.getNum());
+			this.dispose();
 		}
 		
 	}
@@ -217,7 +207,7 @@ public class VentanaAltaMateria extends JFrame implements ActionListener{
 		setTitle("Editar Materia");
 		this.btnEliminar.setVisible(true);
 		this.lblNuevaMateria.setText("Editar Materia");
-		this.btnCrear.setText("Aceptar");
+		//this.btnCrear.setText("Editar");
 		
 	}
 }

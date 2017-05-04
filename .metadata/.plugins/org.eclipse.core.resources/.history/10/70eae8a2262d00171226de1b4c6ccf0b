@@ -222,7 +222,7 @@ public class VentanaAltaMateria extends JFrame implements ActionListener{
 	}
 	public void ventanaCrear(){
 		setTitle("Crear Materia");
-		this.btnEliminar.setVisible(false);
+		this.btnEliminar.setVisible(true);
 		this.lblNuevaMateria.setText("Crear Materia");
 		this.btnCrear.setText("Crear");
 	}

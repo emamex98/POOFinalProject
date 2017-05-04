@@ -467,7 +467,7 @@ public class PanelAgenda extends JPanel {
 		this.arrayPaneles.add(p41);
 		
 		this.cargarDatos();
-		p0.setToolTipText("");
+		p0.setToolTipText("Materia 1");
 		
 
 	}

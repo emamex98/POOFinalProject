@@ -95,9 +95,8 @@ public class MicroPanelAgenda extends JPanel implements MouseListener{
 				  System.out.println("Panel Presionado");
 			}
 		} else {
-			this.vam.ventanaCrear();
 			this.vam.setVisible(true);
-			
+			this.vam.ventanaCrear();
 		}
 		
 		
